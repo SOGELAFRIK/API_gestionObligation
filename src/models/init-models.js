@@ -2,6 +2,7 @@ var DataTypes = require("sequelize").DataTypes;
 var _consolidation = require("./consolidation");
 var _entité = require("./entité");
 var _obligation = require("./obligation");
+var _role = require("./role");
 var _suivi_obligation = require("./suivi_obligation");
 var _utilisateur = require("./utilisateur");
 var _workflow = require("./workflow");
@@ -10,6 +11,7 @@ function initModels(sequelize) {
   var consolidation = _consolidation(sequelize, DataTypes);
   var entité = _entité(sequelize, DataTypes);
   var obligation = _obligation(sequelize, DataTypes);
+  var role = _role(sequelize, DataTypes);
   var suivi_obligation = _suivi_obligation(sequelize, DataTypes);
   var utilisateur = _utilisateur(sequelize, DataTypes);
   var workflow = _workflow(sequelize, DataTypes);
@@ -22,6 +24,8 @@ function initModels(sequelize) {
   obligation.hasMany(suivi_obligation, { as: "suivi_obligations", foreignKey: "id_obligation"});
   workflow.belongsTo(obligation, { as: "id_obligation_obligation", foreignKey: "id_obligation"});
   obligation.hasMany(workflow, { as: "workflows", foreignKey: "id_obligation"});
+  utilisateur.belongsTo(role, { as: "role", foreignKey: "role_id"});
+  role.hasMany(utilisateur, { as: "utilisateurs", foreignKey: "role_id"});
   suivi_obligation.belongsTo(utilisateur, { as: "id_utilisateur_utilisateur", foreignKey: "id_utilisateur"});
   utilisateur.hasMany(suivi_obligation, { as: "suivi_obligations", foreignKey: "id_utilisateur"});
 
@@ -29,6 +33,7 @@ function initModels(sequelize) {
     consolidation,
     entité,
     obligation,
+    role,
     suivi_obligation,
     utilisateur,
     workflow,

@@ -1,10 +1,11 @@
 const { Op } = require("sequelize")
 const { models } = require("../../db/sequelize")
+const auth = require("../../auth/auth")
 
 
 //creation de notre point de terminaison pour recuperer la liste de touts les utilisateurs
 module.exports = (app) => {
-    app.get('/api/user', (req, res) => {
+    app.get('/api/user', auth, (req, res) => {
         //ramène un utilisateur par son nom
         if (req.query.nom) {
             const nom = req.query.nom

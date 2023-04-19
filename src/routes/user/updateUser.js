@@ -1,9 +1,9 @@
 const { ValidationError, UniqueConstraintError } = require("sequelize")
 const { models } = require("../../db/sequelize")
+const auth = require("../../auth/auth")
 
-//point de termison pour modifier un utilisateur a partir de son id
 module.exports = (app) => {
-    app.put('/api/user/:id', (req, res) => {
+    app.put('/api/user/:id', auth, (req, res) => {
         const { id } = req.params
         models.utilisateur.update(req.body, { where: { id_utilisateur: id } })
             .then(() => {

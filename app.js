@@ -30,6 +30,9 @@ require('./src/routes/user/findAllUser')(app)
 
 /* WORKFLOW */
 
+/* LOGIN */
+require('./src/routes/login')(app)
+
 app.use(({ res }) => {
     const message = "Impossible de trouver la ressource demander! vous pouver essayer une autre URL"
     res.status(404).json({ message })

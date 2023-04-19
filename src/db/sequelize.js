@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const initModels = require('../models/init-models');
-
+const bcrypt = require('bcrypt');
 
 //connexion a la base donées 
 const sequelize = new Sequelize('gestionobligations', 'root', '', {
@@ -21,6 +21,18 @@ const initDb = () => {
     return sequelize.sync({ force: false })
         .then(() => {
             console.log('La base de données a été synchronisée avec succès');
+
+            /*bcrypt.hash('admin', 10)
+                .then(hash => models.utilisateur.create(
+                    {
+                        nom: 'admin',
+                        email: 'admin@gmail.com',
+                        mot_de_passe: hash,
+                        id_entite: 1,
+                        role_id: 1
+                    },
+                ))
+                .then(user => console.log(user.toJSON()))*/
         })
         .catch((err) => {
             console.log('La base de données n\'a pas été synchronisée avec succès');

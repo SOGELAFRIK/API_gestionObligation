@@ -1,9 +1,8 @@
-//point de terminaison pour suprimer un user a partir de son id
-
 const { models } = require("../../db/sequelize")
+const auth = require("../../auth/auth")
 
 module.exports = (app) => {
-    app.delete('/api/user/:id', (req, res) => {
+    app.delete('/api/user/:id', auth, (req, res) => {
         models.utilisateur.findByPk(req.params.id)
             .then(user => {
                 const userDeleted = user
@@ -14,7 +13,7 @@ module.exports = (app) => {
                             res.status(404).json({ message })
                         }
                         const message = `L'utilisateur avec l'identifiant n°${userDeleted.id_utilisateur} a été supprimé avec succès`
-                        res.status(200).json({ message, data: userDeleted})
+                        res.status(200).json({ message, data: userDeleted })
                     })
                     .catch(error => {
                         const message = "Une erreur est survenue lors de la suppression de l'utilisateur"

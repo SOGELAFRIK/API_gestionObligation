@@ -1,8 +1,8 @@
 const { models } = require("../../db/sequelize")
+const auth = require("../../auth/auth")
 
-//point de terminason pour rechercher un utilisateur par son id
 module.exports = (app) => {
-    app.get('/api/user/:id', (req, res) => {
+    app.get('/api/user/:id', auth, (req, res) => {
         const { id } = req.params
         models.utilisateur.findByPk(id)
             .then(user => {
