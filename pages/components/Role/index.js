@@ -42,20 +42,16 @@ export default function UsersIn() {
   };
 
   function createData(
-    name = string,
-    surname = number,
-    number = number,
-    email = number,
-    role = number
+    Role = string,
+    Right = string,
+    
   ) {
-    return { name, surname, number, email, role };
+    return { Role, Right };
   }
   const rows = [
-    createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-    createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-    createData("Eclair", 262, 16.0, 24, 6.0),
-    createData("Cupcake", 305, 3.7, 67, 4.3),
-    createData("Gingerbread", 356, 16.0, 49, 3.9),
+    createData("Admin", "777"),
+    createData("Employee", "775"),
+    createData("Gestionnaire", "775" )
   ];
 
   return (
@@ -77,7 +73,7 @@ export default function UsersIn() {
               >
                 <h1 color="red"></h1>
                 <div className="inner-body" >
-                <Button onClick={handleOpen}  className="float-md-right col-md-4" >CREER UTILISATEUR</Button>
+                <Button onClick={handleOpen}  className="float-md-right col-md-4" >CREER ROLE</Button>
                
               <Modal
                 open={open}
@@ -87,30 +83,18 @@ export default function UsersIn() {
                 sx={{marginLeft:'30%'}}
               >
                 <Box width={450} bgcolor={"white"} mt={10} pl={2} pt={2} border={'2px solid black'} boxShadow={10} borderRadius={5}>
-                  <Input type="text" placeholder="Nom de l'employe" sx={{marginBottom:1, marginRight:5}}/>
-                  <Input type="text" placeholder="prenom"/><br/><br/>
-                  <Input type="number" placeholder="Contact" sx={{marginBottom:1, marginRight:5}}/>
-                  <Input type="email" placeholder="email"/><br/><br/>
-                  <Input type="Password" placeholder="Mot de passe" sx={{marginBottom:1, marginRight:5}}/>
-                  <select className="col-md-5">
-                    <option>role1</option>
-                    <option>role2</option>
-                    <option>role3</option>
-                    <option>role4</option>
-                    <option>role5</option>
-                  </select><br/><br/>
+                  <Input type="text" placeholder="Role" sx={{marginBottom:1, marginRight:5}}/>
+                  <Input type="text" placeholder="Description des droits"/><br/><br/>
+                 
                   <Button onClick={handleClose} sx={{color:'gray'}}>fermer</Button>
                   <Button color="primary">Valider</Button>
                 </Box>
               </Modal>
                   <TableContainer component={Paper} bgcolor={"white"} >
-                    <Table sx={{ minWidth: 320 }}  aria-label="simple table">
+                    <Table sx={{ minWidth: 200, maxwidth:320 }}  aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell>Nom</TableCell>
-                          <TableCell align="right">Prenom</TableCell>
-                          <TableCell align="right">Email</TableCell>
-                          <TableCell align="right">Numero</TableCell>
                           <TableCell align="right">Role</TableCell>
                           <TableCell align="right">Actions</TableCell>
                         </TableRow>
@@ -118,20 +102,19 @@ export default function UsersIn() {
                       <TableBody>
                         {rows.map((row) => (
                           <TableRow
-                            key={row.name}
+                            key={row.id}
                             sx={{
                               "&:last-child td, &:last-child th": { border: 0 },
                             }}
                           >
                             <TableCell component="th" scope="row">
-                              {row.name}
+                              {row.Role}
                             </TableCell>
-                            <TableCell align="right">{row.calori}</TableCell>
-                            <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
-                            <TableCell  align="right"sx={{justifyContent:'space-around'}} >
-                              <i class="fas fa-edit mr-2 " role="button" ></i>
+                            <TableCell align="right">
+                              {row.Right}
+                            </TableCell>
+                            <TableCell  align="center"  component="th" scope="row"  >
+                              <i class="fas fa-edit col-md-3 " role="button" ></i>
                               <i class="fas fa-trash-alt " role="button"></i>
                                 
                               
