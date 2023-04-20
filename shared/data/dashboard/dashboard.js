@@ -32,19 +32,19 @@ import projectlogo from "../../../public/assets/img/media/project-logo.png"
 const Dashboardshare = () => {
     const TASKS = [
 		{
-		  Task: "Evaluating the design",
+		  Task: "EVALUATION DU DESIGN",
 		  TeamMember1: user1.src,
 		  TeamMember2: user2.src,
 		  TeamMember3: user3.src,
 		  TeamMember4: user4.src,
 		  OpenTask: "37",
-		  TaskProfit: "High",
+		  TaskProfit: "HAUT",
 		  Profittext: "primary",
-		  Status: "Completed",
+		  Status: "Complete",
 		  Statustext: "primary",
 		},
 		{
-		  Task: "Generate ideas for design",
+		  Task: "Generer les idees pour le design ",
 		  TeamMember1: user2.src,
 		  TeamMember2: user10.src,
 		  TeamMember3: user11.src,
@@ -52,31 +52,31 @@ const Dashboardshare = () => {
 		  OpenTask: "37",
 		  TaskProfit: "Normal",
 		  Profittext: "secondary",
-		  Status: "pending",
+		  Status: "En attente",
 		  Statustext: "warning",
 		},
 		{
-		  Task: "Define the problem",
+		  Task: "Definir le probleme",
 		  TeamMember1: user3.src,
 		  TeamMember2: user6.src,
 		  TeamMember3: user7.src,
 		  TeamMember4: user4.src,
 		  OpenTask: "37",
-		  TaskProfit: "Low",
+		  TaskProfit: "faible",
 		  Profittext: "warning",
-		  Status: "Completed",
+		  Status: "Complete",
 		  Statustext: "primary",
 		},
 		{
-		  Task: "Empathize with users",
+		  Task: "Decouverte des utilisateurs",
 		  TeamMember1: user4.src,
 		  TeamMember2: user5.src,
 		  TeamMember3: user6.src,
 		  TeamMember4: user3.src,
 		  OpenTask: "37",
-		  TaskProfit: "high",
+		  TaskProfit: "Haut",
 		  Profittext: "primary",
-		  Status: "Rejected",
+		  Status: "Annulee",
 		  Statustext: "danger",
 		},
 	  ];
@@ -134,15 +134,13 @@ const Dashboardshare = () => {
 													</svg>
 												</div>
 												<div className="card-item-title mb-2">
-													<label className="main-content-label tx-13 font-weight-bold mb-1">Total
-														Revenue</label>
-													<span className="d-block tx-12 mb-0 text-muted">Previous month vs this
-														months</span>
+													<label className="main-content-label tx-13 font-weight-bold mb-1">Benefice total</label>
+													<span className="d-block tx-12 mb-0 text-muted">Compariason des 2 derniers mois</span>
 												</div>
 												<div className="card-item-body">
 													<div className="card-item-stat">
 														<h4 className="font-weight-bold">$5,900.00</h4>
-														<small><b className="text-success">55%</b> higher</small>
+														<small><b className="text-success">55%</b> De plus</small>
 													</div>
 												</div>
 											</div>
@@ -165,15 +163,13 @@ const Dashboardshare = () => {
 													</svg>
 												</div>
 												<div className="card-item-title mb-2">
-													<label className="main-content-label tx-13 font-weight-bold mb-1">New
-														Employees</label>
-													<span className="d-block tx-12 mb-0 text-muted">Employees joined this
-														month</span>
+													<label className="main-content-label tx-13 font-weight-bold mb-1">Employee totaux</label>
+													<span className="d-block tx-12 mb-0 text-muted">Nombre d'employee de la structure</span>
 												</div>
 												<div className="card-item-body">
 													<div className="card-item-stat">
 														<h4 className="font-weight-bold">15</h4>
-														<small><b className="text-success">5%</b> Increased</small>
+														<small><b className="text-success">5%</b> En hausse</small>
 													</div>
 												</div>
 											</div>
@@ -196,15 +192,13 @@ const Dashboardshare = () => {
 													</svg>
 												</div>
 												<div className="card-item-title  mb-2">
-													<label className="main-content-label tx-13 font-weight-bold mb-1">Total
-														Expenses</label>
-													<span className="d-block tx-12 mb-0 text-muted">Previous month vs this
-														months</span>
+													<label className="main-content-label tx-13 font-weight-bold mb-1">Depenses totaux</label>
+													<span className="d-block tx-12 mb-0 text-muted">Comparaisons des depenses sur les 2 derniers mois</span>
 												</div>
 												<div className="card-item-body">
 													<div className="card-item-stat">
 														<h4 className="font-weight-bold">$8,500</h4>
-														<small><b className="text-danger">12%</b> decrease</small>
+														<small><b className="text-danger">12%</b> En baisse</small>
 													</div>
 												</div>
 											</div>
@@ -247,21 +241,21 @@ const Dashboardshare = () => {
                   <div>
                     <div className="d-md-flex">
                       <label className="main-content-label my-auto pt-2">
-                        Today tasks
+                        Taches du jour
                       </label>
                       <div className="ms-auto mt-3 d-flex">
                         <div className="me-3 d-flex text-muted tx-13">
                           <span className="legend bg-primary rounded-circle"></span>
-                          Project
+                          Projet
                         </div>
                         <div className="d-flex text-muted tx-13">
                           <span className="legend bg-light rounded-circle"></span>
-                          Inprogress
+                          En cours
                         </div>
                       </div>
                     </div>
                     <span className="d-block tx-12 mt-2 mb-0 text-muted">
-                      UX UI & Backend Developement.
+                      UX UI & Backend Devellopement.
                     </span>
                   </div>
                 </Card.Header>
@@ -269,7 +263,7 @@ const Dashboardshare = () => {
                   <Row>
                     <Col sm={6} className="my-auto">
                       <h6 className="mb-3 font-weight-normal">
-                        Project-Budget
+                        Budget de projet
                       </h6>
                       <div className="text-start">
                         <h3 className="font-weight-bold me-3 mb-2 text-primary">
@@ -294,45 +288,36 @@ const Dashboardshare = () => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col sm={12} md={6} lg={6} xl={6}>
+            {/* <Col sm={12} md={6} lg={6} xl={6}>
               <Card className="custom-card overflow-hidden">
                 <Card.Header className="border-bottom-0 pb-0">
                   <div>
                     <div className="d-md-flex">
                       <label className="main-content-label my-auto pt-2">
-                      Project
-													Launch
+                      Lancement du projet
                       </label>
                      
                     </div>
                     <span className="d-block tx-12 mt-2 mb-0 text-muted">
-                    the project is going to
-													launch
+                 le projet est en cours de lancement
                     </span>
                   </div>
                 </Card.Header>
                 <Card.Body className="py-0">
                   <Row>
-                    <Col sm={5} className="my-auto">
+                    <Col sm={5} >
                       
                       <div className="text-start">
                         <h3 className="font-weight-bold me-3 mb-2 text-primary">
-                        145 days
+                        145 jours
                         </h3>
                         <p className="tx-13 my-auto text-muted">
-                        12 Monday, Oct 2023
+                        lundi 12 Octobre 2023
                         </p>
                       </div>
                     </Col>
-                    <Col md={12}  className="my-auto">
-                      <div className="forth circle">
-                        <div>
-                        <div className="col-6 h ">
-											<img src={work.src} alt="image" className="best-emp" height={200}/>
-										</div>
-                         
-                        </div>
-                      </div>
+                    <Col md={7}   >
+                    <img src={work.src} alt="image"  height={100}/>
                     </Col>
                   </Row>
                 </Card.Body>
@@ -356,7 +341,7 @@ const Dashboardshare = () => {
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> */}
             {/* <!-- col end --> */}
             {/* <Col sm={12} md={6} lg={6} xl={6}>
               <Card className="custom-card top-inquiries">
@@ -459,36 +444,35 @@ const Dashboardshare = () => {
                 <Card.Body>
                   <Card.Header className="card-header border-bottom-0 pt-0 ps-0 pe-0 d-flex">
                     <div>
-                      <label className="main-content-label mb-2">Tasks</label>
+                      <label className="main-content-label mb-2">Taches</label>
                       <span className="d-block tx-12 mb-3 text-muted">
-                        A task is accomplished by a set deadline, and must
-                        contribute toward work-related objectives.
+                       L'etat d'une tache est relative a son statut et sa date de debut et fin 
                       </span>
                     </div>
-                    <Dropdown className="ms-auto">
+                    {/* <Dropdown className="ms-auto">
                       <DropdownToggle variant="default" className="option-dots" >
                         <i className="fe fe-more-vertical"></i>
                       </DropdownToggle>
                       <DropdownMenu style={{ margin: "0px" }}>
-                        <DropdownItem href="#!">Task</DropdownItem>
-                        <DropdownItem href="#!">Team</DropdownItem>
-                        <DropdownItem href="#!">Status</DropdownItem>
+                        <DropdownItem href="#!">Tache</DropdownItem>
+                        <DropdownItem href="#!">Entite/Employe(e)/equipe</DropdownItem>
+                        <DropdownItem href="#!">Status</DropdownItem> */}
                         {/* <DropdownDivider  /> */}
-                        <DropdownItem href="#!">
+                        {/* <DropdownItem href="#!">
                           <i className="fa fa-cog me-2"></i> Settings
                         </DropdownItem>
                       </DropdownMenu>
-                    </Dropdown>
+                    </Dropdown> */}
                   </Card.Header>
                   <div className=" tasks">
                     <Table responsive hover
                       className="card-table table-vcenter text-nowrap mb-0 border hover"  >
                       <thead>
                         <tr>
-                          <th className="wd-lg-10p">Task</th>
-                          <th className="wd-lg-20p">Team</th>
-                          <th className="wd-lg-20p text-center">Open task</th>
-                          <th className="wd-lg-20p">Prority</th>
+                          <th className="wd-lg-10p">Tache</th>
+                          <th className="wd-lg-20p">Equipe/Entite</th>
+                          <th className="wd-lg-20p text-center">Tache total</th>
+                          <th className="wd-lg-20p">Priorite</th>
                           <th className="wd-lg-20p">Status</th>
                         </tr>
                       </thead>
@@ -564,9 +548,8 @@ const Dashboardshare = () => {
 						{/* <!-- col end --> */}
 						<div className="col-sm-12 col-lg-12 col-xl-4 mt-xl-4">
 							<div className="card custom-card card-dashboard-calendar pb-0">
-								<label className="main-content-label mb-2 pt-1">Recent transcations</label>
-								<span className="d-block tx-12 mb-2 text-muted">Projects where development work is on
-									completion</span>
+								<label className="main-content-label mb-2 pt-1">Transcations Recentes</label>
+								<span className="d-block tx-12 mb-2 text-muted">Projets ou taches en cours d'achevement</span>
 								<table className="table table-hover m-b-0 transcations mt-2">
 									<tbody>
 										<tr>
@@ -641,54 +624,8 @@ const Dashboardshare = () => {
 												</div>
 											</td>
 										</tr>
-										<tr>
-											<td className="wd-5p">
-												<div className="main-img-user avatar-md">
-													<img alt="avatar" className="rounded-circle me-3"
-														src={user8.src}/>
-												</div>
-											</td>
-											<td>
-												<div className="d-flex align-middle ms-3">
-													<div className="d-inline-block">
-														<h6 className="mb-1">Flicker</h6>
-														<p className="mb-0 tx-13 text-muted">Milestone2</p>
-													</div>
-												</div>
-											</td>
-											<td className="text-end">
-												<div className="d-inline-block">
-													<h6 className="mb-2 tx-15 font-weight-semibold">$37.285<i
-															className="fas fa-level-up-alt ms-2 text-success m-l-10"></i>
-													</h6>
-													<p className="mb-0 tx-11 text-muted">4 Apr 2020</p>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td className="wd-5p pb-0">
-												<div className="main-img-user avatar-md">
-													<img alt="avatar" className="rounded-circle me-3"
-														src={user4.src}/>
-												</div>
-											</td>
-											<td className="pb-0">
-												<div className="d-flex align-middle ms-3">
-													<div className="d-inline-block">
-														<h6 className="mb-1">Flicker</h6>
-														<p className="mb-0 tx-13 text-muted">App improvement</p>
-													</div>
-												</div>
-											</td>
-											<td className="text-end pb-0">
-												<div className="d-inline-block">
-													<h6 className="mb-2 tx-15 font-weight-semibold">$25.341<i
-															className="fas fa-level-down-alt ms-2 text-danger m-l-10"></i>
-													</h6>
-													<p className="mb-0 tx-11 text-muted">4 Apr 2020</p>
-												</div>
-											</td>
-										</tr>
+									
+										
 									</tbody>
 								</table>
 							</div>
@@ -699,10 +636,10 @@ const Dashboardshare = () => {
             <Card.Header className="border-bottom-0 pb-0 d-flex ps-3 ms-1">
               <div>
                 <label className="main-content-label mb-2 pt-2">
-                  On goiong projects
+                 Projets en Cours
                 </label>
                 <span className="d-block tx-12 mb-2 text-muted">
-                  Projects where development work is on completion
+                 Projet en cours de finition 
                 </span>
               </div>
             </Card.Header>
@@ -738,10 +675,10 @@ const Dashboardshare = () => {
                         src={user4.src}
                       />
                     </div>
-                    <div className="ms-2">Design team</div>
+                    <div className="ms-2">Creation de succursale</div>
                   </div>
-                  <div className="ms-auto float-end">
-                    <Dropdown className="GOIONGPROJECTS">
+                  {/* <div className="ms-auto float-end"> */}
+                    {/* <Dropdown className="GOIONGPROJECTS">
                       <DropdownToggle variant="default" className="option-dots">
                         <i className="fe fe-more-horizontal"></i>
                       </DropdownToggle>
@@ -754,8 +691,8 @@ const Dashboardshare = () => {
                         <DropdownItem href="#!">Last Month</DropdownItem>
                         <DropdownItem href="#!">Last Year</DropdownItem>
                       </DropdownMenu>
-                    </Dropdown>
-                  </div>
+                    </Dropdown> */}
+                  {/* </div> */}
                 </div>
                 <div className="card-item mt-4">
                   <div className="card-item-icon bg-transparent card-icon">
@@ -770,9 +707,9 @@ const Dashboardshare = () => {
                   <div className="card-item-body">
                     <div className="card-item-stat">
                       <small className="tx-10 text-primary font-weight-semibold">
-                        25 August 2020
+                        25 Aout 2023
                       </small>
-                      <h6 className=" mt-2">Mobile app design</h6>
+                      <h6 className=" mt-2">Confection du rendu mobile</h6>
                     </div>
                   </div>
                 </div>
@@ -808,9 +745,9 @@ const Dashboardshare = () => {
                         src={user8.src}
                       />
                     </div>
-                    <div className="ms-2">Design team</div>
+                    <div className="ms-2">Achat du materiel </div>
                   </div>
-                  <div className="ms-auto float-end">
+                  {/* <div className="ms-auto float-end">
                     <Dropdown className="Designteam">
                       <DropdownToggle variant="default" className="option-dots">
                         <i className="fe fe-more-horizontal"></i>
@@ -825,7 +762,7 @@ const Dashboardshare = () => {
                         <DropdownItem href="#!">Last Year</DropdownItem>
                       </DropdownMenu>
                     </Dropdown>
-                  </div>
+                  </div> */}
                 </div>
                 <div className="card-item mt-4">
                   <div className="card-item-icon bg-transparent card-icon">
@@ -840,9 +777,9 @@ const Dashboardshare = () => {
                   <div className="card-item-body">
                     <div className="card-item-stat">
                       <small className="tx-10 text-primary font-weight-semibold">
-                        12 JUNE 2020
+                        12 JUIN 2020
                       </small>
-                      <h6 className=" mt-2">Website Redesign</h6>
+                      <h6 className=" mt-2 m-3">Achat du materiel pour la succursale</h6>
                     </div>
                   </div>
                 </div>

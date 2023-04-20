@@ -103,11 +103,11 @@ const Home = ()=>{
                       {err && <Alert variant="danger">{err}</Alert>}
                       <Form>
                         <h5 className="text-start mb-2">
-                          Signin to Your Account
+                        CONNEXION A VOTRE COMPTE
                         </h5>
-                        <p className="mb-4 text-muted tx-13 ms-0 text-start">
+                        {/* <p className="mb-4 text-muted tx-13 ms-0 text-start">
                         COnnectez-vous
-                        </p>
+                        </p> */}
                         <Form.Group className="text-start form-group" controlId="formEmail">
                           <Form.Label>Email</Form.Label>
                           <Form.Control
@@ -124,7 +124,7 @@ const Home = ()=>{
                           className="text-start form-group"
                           controlId="formpassword"
                         >
-                          <Form.Label>Password</Form.Label>
+                          <Form.Label>MOT DE PASSE</Form.Label>
                           <Form.Control
                                   className="form-control"
                                   placeholder="Enter your password"
@@ -136,23 +136,10 @@ const Home = ()=>{
                                 />
                         </Form.Group>
                         <Button onClick={Login} className="btn ripple btn-main-primary btn-block mt-2">
-                          Sign In
+                         CONNEXION
                         </Button>
                       </Form>
-                      <div className="text-start mt-5 ms-0">
-                        <div className="mb-1">
-                          <Link
-                            href="#!"
-                          > Forgot password ? 
-                          </Link>
-                        </div>
-                        <div>
-                          {`Don't`} have an account?
-                          <Link
-                            href={`/components/authentication/signup/`}
-                          > Resgister Here</Link>
-                        </div>
-                      </div>
+                     
                     </Card.Body>
                   </Row>
                 </Container>
