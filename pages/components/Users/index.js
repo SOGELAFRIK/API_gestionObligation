@@ -222,7 +222,7 @@ export default function UsersIn() {
                             {/* <TableCell align="right">{user.mot_de_passe}</TableCell> */}
                             {/* l'id de l'entite  */}
                             <TableCell align="center">{user.id_entite}</TableCell>
-                            {/* l'id dur role de l'utilisateur */}
+                            {/* l'id du role de l'utilisateur */}
                             <TableCell align="center">{user.role_id}</TableCell>
                             {/* la colone des actions  */}
                             <TableCell align="center" sx={{ justifyContent: 'space-around'}} >
