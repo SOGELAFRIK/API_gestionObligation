@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      unique: { msg: "unique_email" }
+      unique: { msg: "cet email est dejà pris" }
     },
     mot_de_passe: {
       type: DataTypes.STRING(255),

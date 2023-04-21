@@ -22,11 +22,11 @@ const initDb = () => {
         .then(() => {
             console.log('La base de données a été synchronisée avec succès');
 
-            /*bcrypt.hash('admin', 10)
+           /*bcrypt.hash('admin', 10)
                 .then(hash => models.utilisateur.create(
                     {
-                        nom: 'admin',
-                        email: 'admin@gmail.com',
+                        nom: 'admin2',
+                        email: 'admin10@gmail.com',
                         mot_de_passe: hash,
                         id_entite: 1,
                         role_id: 1

@@ -2,8 +2,8 @@ const { models } = require("../../db/sequelize")
 const auth = require("../../auth/auth")
 
 module.exports = (app) => {
-    app.delete('/api/user/:id', auth, (req, res) => {
-        models.utilisateur.findByPk(req.params.id)
+    app.delete('/api/user/:id', auth, async (req, res) => {
+        await models.utilisateur.findByPk(req.params.id)
             .then(user => {
                 const userDeleted = user
                 return models.utilisateur.destroy({ where: { id_utilisateur: user.id_utilisateur } })

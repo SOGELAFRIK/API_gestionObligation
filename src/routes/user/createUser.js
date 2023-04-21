@@ -20,7 +20,7 @@ module.exports = (app) => {
 
             const message = `L'utilisateur ${req.body.nom} a été créé avec succès`;
             console.log(user.toJSON());
-            res.status(201).json({ message, data: user });
+            return res.status(201).json({ message, data: user });
         } catch (error) {
             if (error instanceof ValidationError) {
                 res.status(400).json({ message: error, data: error });
@@ -29,7 +29,7 @@ module.exports = (app) => {
                 res.status(400).json({ message: error, data: error });
             }
             const message = `L'utilisateur ${req.body.nom} n'a pas été créé avec succès`;
-            res.status(500).json({ message, data: error });
+            return res.status(500).json({ message, data: error });
         }
     });
 };
