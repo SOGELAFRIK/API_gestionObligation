@@ -26,7 +26,7 @@ const initDb = () => {
                 .then(hash => models.utilisateur.create(
                     {
                         nom: 'admin2',
-                        email: 'admin10@gmail.com',
+                        email: 'admin2@gmail.com',
                         mot_de_passe: hash,
                         id_entite: 1,
                         role_id: 1
