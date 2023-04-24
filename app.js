@@ -30,6 +30,8 @@ require('./src/routes/user/updateUser')(app)
 require('./src/routes/user/deleteUser')(app)
 require('./src/routes/user/findAllUser')(app)
 
+/* ROLE */
+require('./src/routes/role/createRole')(app)
 /* WORKFLOW */
 
 /* LOGIN */
