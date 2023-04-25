@@ -18,9 +18,18 @@ app.get('/', (req, res) => {
 //ici nos future points de terminaison
 
 /* ENTITE */
+require('./src/routes/entite/createEntite')(app)
+require('./src/routes/entite/deleteEntite')(app)
+require('./src/routes/entite/findAllEntite')(app)
+require('./src/routes/entite/findEntiteById')(app)
+require('./src/routes/entite/updateEntite')(app)
 
 /* OBLIGATIONS */
-
+require('./src/routes/obligation/createObligation')(app)
+require('./src/routes/obligation/deleteObligation')(app)
+require('./src/routes/obligation/finfAllObligation')(app)
+require('./src/routes/obligation/findBobligationById')(app)
+require('./src/routes/obligation/updtaeObligation')(app)
 /* SUIVI OBLIGATION */
 
 /* UTILISATEUR */
@@ -32,6 +41,10 @@ require('./src/routes/user/findAllUser')(app)
 
 /* ROLE */
 require('./src/routes/role/createRole')(app)
+require('./src/routes/role/deleteRole')(app)
+require('./src/routes/role/findAllRole')(app)
+require('./src/routes/role/findRoleByRole')(app)
+require('./src/routes/role/updateRole')(app)
 /* WORKFLOW */
 
 /* LOGIN */
