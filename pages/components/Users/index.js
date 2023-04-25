@@ -77,7 +77,7 @@ export default function UsersIn() {
               >
                 <h1 color="red"></h1>
                 <div className="inner-body" >
-                <Button onClick={handleOpen}  className="float-md-right col-md-4" >CREER UTILISATEUR</Button>
+                <Button onClick={handleOpen}  className="float-md-right btn btn-primary" >CREER UTILISATEUR</Button>
                
               <Modal
                 open={open}
@@ -103,7 +103,7 @@ export default function UsersIn() {
                   <Button color="primary">Valider</Button>
                 </Box>
               </Modal>
-                  <TableContainer component={Paper} bgcolor={"white"} >
+                  <TableContainer component={Paper} variant="outlined" square  bgcolor={"white"} sx={{backgroundColor:'white', colorScheme:'white'}} >
                     <Table sx={{ minWidth: 320 }}  aria-label="simple table">
                       <TableHead>
                         <TableRow>
@@ -120,16 +120,16 @@ export default function UsersIn() {
                           <TableRow
                             key={row.name}
                             sx={{
-                              "&:last-child td, &:last-child th": { border: 0 },
+                              
                             }}
                           >
                             <TableCell component="th" scope="row">
                               {row.name}
                             </TableCell>
-                            <TableCell align="right">{row.calori}</TableCell>
-                            <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
+                            <TableCell align="right">{row.surname}</TableCell>
+                            <TableCell align="right">{row.number}</TableCell>
+                            <TableCell align="right">{row.email}</TableCell>
+                            <TableCell align="right">{row.role}</TableCell>
                             <TableCell  align="right"sx={{justifyContent:'space-around'}} >
                               <i class="fas fa-edit mr-2 " role="button" ></i>
                               <i class="fas fa-trash-alt " role="button"></i>
