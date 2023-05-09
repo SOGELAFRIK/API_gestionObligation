@@ -13,14 +13,14 @@ module.exports = (app) => {
                 return res.status(404).json({ message });
             }
 
-            const { label, ...otherFields } = req.body;
+            const { label } = req.body;
 
-            if (Object.keys(otherFields).length === 0) {
+            if (!label) {
                 const message = "Aucune donnée à mettre à jour";
                 return res.status(400).json({ message });
             }
 
-            await models.role.update(otherFields, { where: { id: id } });
+            await models.role.update({label}, { where: { id: id } });
 
             const updatedRole = await models.role.findByPk(id);
             const message = `Le rôle avec l'identifiant n°${updatedRole.id} a été modifié avec succès`;

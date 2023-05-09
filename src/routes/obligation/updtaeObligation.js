@@ -20,10 +20,10 @@ module.exports = (app) => {
                 return res.status(400).json({ message })
             }
 
-            await models.obligation.update({ nom, adresse, ville, pays }, { where: { id_obligation: id } })
+            await models.obligation.update({ titre, description, date_echeance, date_creation, date_maj, id_entite }, { where: { id_obligation: id } })
 
             const updateObligation = await models.obligation.findByPk(id)
-            const message = `L'entité avec l'identifiant n°${updateObligation.id_obligation} a été modifiée avec succès`
+            const message = `L'obligation avec l'identifiant n°${updateObligation.id_obligation} a été modifiée avec succès`
             return res.status(200).json({ message, data: updateObligation })
 
         } catch (error) {

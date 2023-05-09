@@ -7,22 +7,6 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       primaryKey: true
     },
-    etat_conformite: {
-      type: DataTypes.STRING(20),
-      allowNull: true
-    },
-    date_suivi: {
-      type: DataTypes.DATE,
-      allowNull: true
-    },
-    commentaire: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    fichier_joint: {
-      type: DataTypes.STRING(255),
-      allowNull: true
-    },
     id_obligation: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -31,6 +15,10 @@ module.exports = function(sequelize, DataTypes) {
         key: 'id_obligation'
       }
     },
+    id_controleur: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     id_utilisateur: {
       type: DataTypes.INTEGER,
       allowNull: true,
@@ -38,6 +26,42 @@ module.exports = function(sequelize, DataTypes) {
         model: 'utilisateur',
         key: 'id_utilisateur'
       }
+    },
+    id_status_conformite: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    reponsable_mise_oeuvre: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    date_suivi: {
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    commentaire_controleur: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    link_fichier_controle: {
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
+    echeance_a_venir: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    echeance_passe: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    recommandation: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    plan_action: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   }, {
     sequelize,
@@ -64,6 +88,13 @@ module.exports = function(sequelize, DataTypes) {
         using: "BTREE",
         fields: [
           { name: "id_utilisateur" },
+        ]
+      },
+      {
+        name: "id_status_conformite",
+        using: "BTREE",
+        fields: [
+          { name: "id_status_conformite" },
         ]
       },
     ]

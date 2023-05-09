@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('utilisateur', {
     id_utilisateur: {
       autoIncrement: true,
@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
     email: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      unique: { msg: "cet email est dejà pris" }
+      unique: "utilisateur_email_unique"
     },
     mot_de_passe: {
       type: DataTypes.STRING(255),
@@ -51,6 +51,14 @@ module.exports = function (sequelize, DataTypes) {
       },
       {
         name: "unique_email",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "email" },
+        ]
+      },
+      {
+        name: "utilisateur_email_unique",
         unique: true,
         using: "BTREE",
         fields: [

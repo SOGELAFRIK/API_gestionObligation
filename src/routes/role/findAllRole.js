@@ -3,7 +3,7 @@ const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
 
 module.exports = (app) => {
-    app.get("/api/roles", auth, async (req, res) => {
+    app.get("/api/role", auth, async (req, res) => {
         try {
             // Recherche d'un rôle par libellé
             if (req.query.label) {
