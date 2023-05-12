@@ -13,14 +13,14 @@ module.exports = (app) => {
                 return res.status(404).json({ message })
             }
 
-            const { titre, description, date_echeance, date_creation, date_maj, id_entite } = req.body
+            const { titre, description, date_echeance, date_creation, date_maj, risque, link_fichier_controle, id_niveau_risque, id_article_associe, id_periodicite, id_entite, id_commenditaire, id_executeur, id_controleur } = req.body
 
-            if (!titre && !description && !date_echeance && !date_creation && !date_maj && !id_entite) {
+            if (!titre && !description && !date_echeance && !date_creation && !date_maj && !id_entite ) {
                 const message = "Aucune donnée à mettre à jour"
                 return res.status(400).json({ message })
             }
 
-            await models.obligation.update({ titre, description, date_echeance, date_creation, date_maj, id_entite }, { where: { id_obligation: id } })
+            await models.obligation.update(req.body, { where: { id_obligation: id } })
 
             const updateObligation = await models.obligation.findByPk(id)
             const message = `L'obligation avec l'identifiant n°${updateObligation.id_obligation} a été modifiée avec succès`

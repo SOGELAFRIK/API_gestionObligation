@@ -6,14 +6,7 @@ module.exports = (app) => {
         const { etat_conformite, date_suivi, commentaire, fichier_joint, id_obligation, id_utilisateur } = req.body
 
         try {
-            const suiviObligation = await models.suivi_obligation.create({
-                etat_conformite,
-                date_suivi,
-                commentaire,
-                fichier_joint,
-                id_obligation,
-                id_utilisateur
-            })
+            const suiviObligation = await models.suivi_obligation.create(req.body)
 
             const message = "Le suivi d'obligation a été créé avec succès"
             return res.status(201).json({ message, data: suiviObligation })

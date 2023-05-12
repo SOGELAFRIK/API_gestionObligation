@@ -1,5 +1,6 @@
 var DataTypes = require("sequelize").DataTypes;
 var _article = require("./article");
+var _chapitre = require("./chapitre");
 var _consolidation = require("./consolidation");
 var _entité = require("./entité");
 var _niveau_risque = require("./niveau_risque");
@@ -7,11 +8,13 @@ var _obligation = require("./obligation");
 var _periodicite = require("./periodicite");
 var _role = require("./role");
 var _suivi_obligation = require("./suivi_obligation");
+var _texte = require("./texte");
 var _utilisateur = require("./utilisateur");
 var _workflow = require("./workflow");
 
 function initModels(sequelize) {
   var article = _article(sequelize, DataTypes);
+  var chapitre = _chapitre(sequelize, DataTypes);
   var consolidation = _consolidation(sequelize, DataTypes);
   var entité = _entité(sequelize, DataTypes);
   var niveau_risque = _niveau_risque(sequelize, DataTypes);
@@ -19,6 +22,7 @@ function initModels(sequelize) {
   var periodicite = _periodicite(sequelize, DataTypes);
   var role = _role(sequelize, DataTypes);
   var suivi_obligation = _suivi_obligation(sequelize, DataTypes);
+  var texte = _texte(sequelize, DataTypes);
   var utilisateur = _utilisateur(sequelize, DataTypes);
   var workflow = _workflow(sequelize, DataTypes);
 
@@ -37,6 +41,7 @@ function initModels(sequelize) {
 
   return {
     article,
+    chapitre,
     consolidation,
     entité,
     niveau_risque,
@@ -44,6 +49,7 @@ function initModels(sequelize) {
     periodicite,
     role,
     suivi_obligation,
+    texte,
     utilisateur,
     workflow,
   };

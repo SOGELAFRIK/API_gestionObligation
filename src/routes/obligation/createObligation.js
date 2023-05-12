@@ -7,7 +7,7 @@ module.exports = (app) => {
         try {
             const { titre, description, date_echeance, date_creation, date_maj, id_entite } = req.body
 
-            const newObligation = await models.obligation.create({ titre, description, date_echeance, date_creation, date_maj, id_entite })
+            const newObligation = await models.obligation.create(req.body)
 
             const message = `L'obligation avec l'identifiant n°${newObligation.id_obligation} a été créée avec succès`
             return res.status(201).json({ message, data: newObligation })

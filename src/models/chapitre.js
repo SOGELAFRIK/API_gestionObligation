@@ -1,27 +1,31 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('article', {
-    id_article: {
+  return sequelize.define('chapitre', {
+    id_chapitre: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    id_chapitre: {
+    id_texte: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    titre_article: {
-      type: DataTypes.INTEGER,
+    titre_chapitre: {
+      type: DataTypes.STRING(100),
       allowNull: false
     },
-    corps_article: {
+    corps_chapitre: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    id_createur: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {
     sequelize,
-    tableName: 'article',
+    tableName: 'chapitre',
     timestamps: false,
     indexes: [
       {
@@ -29,14 +33,21 @@ module.exports = function(sequelize, DataTypes) {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_article" },
+          { name: "id_chapitre" },
         ]
       },
       {
-        name: "id_chapitre",
+        name: "id_article",
         using: "BTREE",
         fields: [
-          { name: "id_chapitre" },
+          { name: "id_texte" },
+        ]
+      },
+      {
+        name: "id_createur",
+        using: "BTREE",
+        fields: [
+          { name: "id_createur" },
         ]
       },
     ]

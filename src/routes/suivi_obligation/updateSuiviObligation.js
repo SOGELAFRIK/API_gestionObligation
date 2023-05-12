@@ -15,7 +15,7 @@ module.exports = (app) => {
 
             const { etat_conformite, date_suivi, commentaire, fichier_joint } = req.body
 
-            await models.suivi_obligation.update({ etat_conformite, date_suivi, commentaire, fichier_joint }, { where: { id_suivi: id } })
+            await models.suivi_obligation.update(req.body, { where: { id_suivi: id } })
 
             const updatedSuiviObligation = await models.suivi_obligation.findByPk(id)
             const message = `Le suivi d'obligation avec l'identifiant n°${updatedSuiviObligation.id_suivi} a été modifié avec succès`
