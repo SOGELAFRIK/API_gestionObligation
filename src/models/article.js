@@ -9,14 +9,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_chapitre: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'chapitre',
+        key: 'id_chapitre'
+      }
     },
     titre_article: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING(250),
       allowNull: false
     },
     corps_article: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: false
     }
   }, {

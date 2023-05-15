@@ -8,6 +8,7 @@ const createUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(req.body.mot_de_passe, 10);
         const user = await models.utilisateur.create({
             nom: req.body.nom,
+            prenom: req.body.prenom,
             email: req.body.email,
             mot_de_passe: hashedPassword,
             id_entite: req.body.id_entite,

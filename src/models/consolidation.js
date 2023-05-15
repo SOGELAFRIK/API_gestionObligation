@@ -9,19 +9,19 @@ module.exports = function(sequelize, DataTypes) {
     },
     nb_obligations: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     nb_obligations_conformes: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     nb_obligations_non_conformes: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     nb_obligations_en_cours: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

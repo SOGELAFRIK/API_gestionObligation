@@ -13,14 +13,25 @@ module.exports = (app) => {
                 return res.status(404).json({ message })
             }
 
-            const { nom, adresse, ville, pays } = req.body
+            const {
+              nom,
+              adresse,
+              ville,
+              pays,
+              registre_cormmerce,
+              rcc,
+              id_admin,
+            } = req.body;
 
-            if (!nom && !adresse && !ville && !pays) {
+            if (!nom && !adresse && !ville && !pays && !registre_cormmerce && !rcc && !id_admin) {
                 const message = "Aucune donnée à mettre à jour"
                 return res.status(400).json({ message })
             }
 
-            await models.entité.update({ nom, adresse, ville, pays }, { where: { id_entite: id } })
+            await models.entité.update(
+              { nom, adresse, ville, pays, registre_cormmerce, rcc, id_admin },
+              { where: { id_entite: id } }
+            );
 
             const updatedEntite = await models.entité.findByPk(id)
             const message = `L'entité avec l'identifiant n°${updatedEntite.id_entite} a été modifiée avec succès`

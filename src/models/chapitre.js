@@ -9,7 +9,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_texte: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      references: {
+        model: 'texte',
+        key: 'id_texte'
+      }
     },
     titre_chapitre: {
       type: DataTypes.STRING(100),
@@ -21,7 +25,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_createur: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'utilisateur',
+        key: 'id_utilisateur'
+      }
     }
   }, {
     sequelize,
@@ -37,17 +45,17 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "id_article",
-        using: "BTREE",
-        fields: [
-          { name: "id_texte" },
-        ]
-      },
-      {
         name: "id_createur",
         using: "BTREE",
         fields: [
           { name: "id_createur" },
+        ]
+      },
+      {
+        name: "id_article",
+        using: "BTREE",
+        fields: [
+          { name: "id_texte" },
         ]
       },
     ]

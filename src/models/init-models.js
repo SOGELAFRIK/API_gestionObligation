@@ -7,6 +7,7 @@ var _niveau_risque = require("./niveau_risque");
 var _obligation = require("./obligation");
 var _periodicite = require("./periodicite");
 var _role = require("./role");
+var _status_conformite = require("./status_conformite");
 var _suivi_obligation = require("./suivi_obligation");
 var _texte = require("./texte");
 var _utilisateur = require("./utilisateur");
@@ -21,21 +22,40 @@ function initModels(sequelize) {
   var obligation = _obligation(sequelize, DataTypes);
   var periodicite = _periodicite(sequelize, DataTypes);
   var role = _role(sequelize, DataTypes);
+  var status_conformite = _status_conformite(sequelize, DataTypes);
   var suivi_obligation = _suivi_obligation(sequelize, DataTypes);
   var texte = _texte(sequelize, DataTypes);
   var utilisateur = _utilisateur(sequelize, DataTypes);
   var workflow = _workflow(sequelize, DataTypes);
 
+  obligation.belongsTo(article, { as: "id_article_associe_article", foreignKey: "id_article_associe"});
+  article.hasOne(obligation, { as: "obligation", foreignKey: "id_article_associe"});
+  article.belongsTo(chapitre, { as: "id_chapitre_chapitre", foreignKey: "id_chapitre"});
+  chapitre.hasMany(article, { as: "articles", foreignKey: "id_chapitre"});
   obligation.belongsTo(entité, { as: "id_entite_entité", foreignKey: "id_entite"});
   entité.hasMany(obligation, { as: "obligations", foreignKey: "id_entite"});
   utilisateur.belongsTo(entité, { as: "id_entite_entité", foreignKey: "id_entite"});
   entité.hasMany(utilisateur, { as: "utilisateurs", foreignKey: "id_entite"});
+  obligation.belongsTo(niveau_risque, { as: "id_niveau_risque_niveau_risque", foreignKey: "id_niveau_risque"});
+  niveau_risque.hasMany(obligation, { as: "obligations", foreignKey: "id_niveau_risque"});
   suivi_obligation.belongsTo(obligation, { as: "id_obligation_obligation", foreignKey: "id_obligation"});
   obligation.hasMany(suivi_obligation, { as: "suivi_obligations", foreignKey: "id_obligation"});
   workflow.belongsTo(obligation, { as: "id_obligation_obligation", foreignKey: "id_obligation"});
   obligation.hasMany(workflow, { as: "workflows", foreignKey: "id_obligation"});
+  obligation.belongsTo(periodicite, { as: "id_periodicite_periodicite", foreignKey: "id_periodicite"});
+  periodicite.hasOne(obligation, { as: "obligation", foreignKey: "id_periodicite"});
   utilisateur.belongsTo(role, { as: "role", foreignKey: "role_id"});
   role.hasMany(utilisateur, { as: "utilisateurs", foreignKey: "role_id"});
+  chapitre.belongsTo(texte, { as: "id_texte_texte", foreignKey: "id_texte"});
+  texte.hasMany(chapitre, { as: "chapitres", foreignKey: "id_texte"});
+  chapitre.belongsTo(utilisateur, { as: "id_createur_utilisateur", foreignKey: "id_createur"});
+  utilisateur.hasMany(chapitre, { as: "chapitres", foreignKey: "id_createur"});
+  obligation.belongsTo(utilisateur, { as: "id_commenditaire_utilisateur", foreignKey: "id_commenditaire"});
+  utilisateur.hasOne(obligation, { as: "obligation", foreignKey: "id_commenditaire"});
+  obligation.belongsTo(utilisateur, { as: "id_executeur_utilisateur", foreignKey: "id_executeur"});
+  utilisateur.hasOne(obligation, { as: "id_executeur_obligation", foreignKey: "id_executeur"});
+  obligation.belongsTo(utilisateur, { as: "id_controleur_utilisateur", foreignKey: "id_controleur"});
+  utilisateur.hasOne(obligation, { as: "id_controleur_obligation", foreignKey: "id_controleur"});
   suivi_obligation.belongsTo(utilisateur, { as: "id_utilisateur_utilisateur", foreignKey: "id_utilisateur"});
   utilisateur.hasMany(suivi_obligation, { as: "suivi_obligations", foreignKey: "id_utilisateur"});
 
@@ -48,6 +68,7 @@ function initModels(sequelize) {
     obligation,
     periodicite,
     role,
+    status_conformite,
     suivi_obligation,
     texte,
     utilisateur,

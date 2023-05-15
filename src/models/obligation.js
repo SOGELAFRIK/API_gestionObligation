@@ -37,15 +37,29 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_niveau_risque: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'niveau_risque',
+        key: 'id_niveau_risque'
+      }
     },
     id_article_associe: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'article',
+        key: 'id_article'
+      },
+      unique: "obligation_ibfk_2"
     },
     id_periodicite: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'periodicite',
+        key: 'id_periodicite'
+      },
+      unique: "obligation_ibfk_3"
     },
     id_entite: {
       type: DataTypes.INTEGER,
@@ -58,16 +72,29 @@ module.exports = function(sequelize, DataTypes) {
     id_commenditaire: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: "id_commenditaire"
+      references: {
+        model: 'utilisateur',
+        key: 'id_utilisateur'
+      },
+      unique: "obligation_ibfk_5"
     },
     id_executeur: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'utilisateur',
+        key: 'id_utilisateur'
+      },
+      unique: "obligation_ibfk_6"
     },
     id_controleur: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: "id_controleur"
+      references: {
+        model: 'utilisateur',
+        key: 'id_utilisateur'
+      },
+      unique: "obligation_ibfk_7"
     }
   }, {
     sequelize,
@@ -83,7 +110,23 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "id_commenditaire",
+        name: "obligation_ibfk_2",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id_article_associe" },
+        ]
+      },
+      {
+        name: "obligation_ibfk_3",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id_periodicite" },
+        ]
+      },
+      {
+        name: "obligation_ibfk_5",
         unique: true,
         using: "BTREE",
         fields: [
@@ -91,7 +134,15 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "id_controleur",
+        name: "obligation_ibfk_6",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "id_executeur" },
+        ]
+      },
+      {
+        name: "obligation_ibfk_7",
         unique: true,
         using: "BTREE",
         fields: [
@@ -99,24 +150,11 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "id_entite",
+        name: "id_article",
+        unique: true,
         using: "BTREE",
         fields: [
-          { name: "id_entite" },
-        ]
-      },
-      {
-        name: "id_responsable",
-        using: "BTREE",
-        fields: [
-          { name: "id_executeur" },
-        ]
-      },
-      {
-        name: "id_periodicite",
-        using: "BTREE",
-        fields: [
-          { name: "id_periodicite" },
+          { name: "id_article_associe" },
         ]
       },
       {
@@ -127,10 +165,10 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "id_article_associe",
+        name: "id_entite",
         using: "BTREE",
         fields: [
-          { name: "id_article_associe" },
+          { name: "id_entite" },
         ]
       },
     ]

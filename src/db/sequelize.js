@@ -18,7 +18,7 @@ const models = initModels(sequelize);
 
 //sychroniser notre base de données
 const initDb = () => {
-    return sequelize.sync({ force: false })
+    return sequelize.sync({ force: true })
         .then(() => {
             console.log('La base de données a été synchronisée avec succès');
 
