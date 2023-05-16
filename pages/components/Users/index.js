@@ -77,7 +77,7 @@ export default function UsersIn() {
               >
                 <h1 color="red"></h1>
                 <div className="inner-body" >
-                <Button onClick={handleOpen}  className="float-md-right btn btn-primary" >CREER UTILISATEUR</Button>
+                <Button onClick={handleOpen}  className="float-md-right btn btn-primary " >CREER UTILISATEUR</Button>
                
               <Modal
                 open={open}

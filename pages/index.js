@@ -78,7 +78,7 @@ const Home = ()=>{
                     className="ht-100 mb-0"
                     alt="user"
                   />
-                  <h5 className="mt-4 text-white">Create Your Account</h5>
+                  <h5 className="mt-4 text-white">Connexion a votre compte</h5>
                   <span className="tx-white-6 tx-13 mb-5 mt-xl-0">
                    Connectez-vous afin de beneficier de vos services
                   </span>
