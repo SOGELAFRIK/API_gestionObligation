@@ -10,9 +10,7 @@ import {
   RadioGroup,
   Stack,
   Text,
-  border,
   useMediaQuery,
-  useRadioGroup,
 } from "@chakra-ui/react";
 import { SetStateAction, useState } from "react";
 import HowDoCard from "./components/howDoCard";
