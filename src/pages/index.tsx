@@ -56,23 +56,26 @@ const HowDoCard: React.FC<HowDoCardProps> = ({ howDo, colorScheme }) => {
         justifyContent={"center"}
         flexDirection={"column"}
         textAlign={"left"}
-        _hover={{
+        borderWidth={'2px'}
+        borderColor={colorScheme}
+        borderRadius={'15px'}
+       /* _hover={{
           alignItems: "center",
-          // borderColor: colorScheme,
-          // borderWidth: "2px",
+          borderColor: colorScheme,
+          borderWidth: "2px",
           fontStyle: "italic",
-        }}
+        }}*/
         transition={".2s"}
         role="group"
       >
         <Heading color={colorScheme}>{howDo.title}</Heading>
-        <Text _groupHover={{ textAlign: "center" }}>{howDo.description}</Text>
+        <Text /*_groupHover={{ textAlign: "center" }}*/ textAlign={'center'}>{howDo.description}</Text>
         <Box boxSize="sm">
           <Image
             src={howDo.imageLink}
             alt="Dan Abramov"
-            display={"none"}
-            _groupHover={{ display: "flex" }}
+            // display={"none"}
+            // _groupHover={{ display: "flex" }}
           />
         </Box>
       </Flex>
@@ -102,13 +105,13 @@ const Avantage: React.FC<Advantage> = ({ adavantageItem, colorScheme }) => {
         borderWidth={"2px"}
         borderColor={colorScheme}
         borderRadius={"3xl"}
-        _hover={{
-          bg: "#778da943",
-          borderColor: "transparent",
-          transform: { base: "scale(1.01)", md: "scale(1.1)" },
-          transition: ".3s",
-          fontStyle: "italic",
-        }}
+        // _hover={{
+        //   bg: "#778da943",
+        //   borderColor: "transparent",
+        //   transform: { base: "scale(1.01)", md: "scale(1.1)" },
+        //   transition: ".3s",
+        //   fontStyle: "italic",
+        // }}
         role="group"
       >
         <Flex
@@ -118,13 +121,12 @@ const Avantage: React.FC<Advantage> = ({ adavantageItem, colorScheme }) => {
           textAlign={"left"}
           w={"90%"}
           h={"90%"}
-          _hover={{
-            alignItems: "center",
-          }}
-          _groupHover={{
-            // alignItems: "center",
-            textAlign: "center",
-          }}
+          // _hover={{
+          //   alignItems: "center",
+          // }}
+          // _groupHover={{
+          //   textAlign: "center",
+          // }}
         >
           <Text color={colorScheme} fontWeight={"bold"}>
             {adavantageItem.title}
@@ -456,7 +458,7 @@ export default function Home() {
               h={{ base: "auto", md: "90%" }}
               flexDirection={{ base: "column", md: "row" }}
               justifyContent={"space-between"}
-              role="group"
+              // role="group"
             >
               {advantageList.map((item) => (
                 <Avantage
@@ -469,7 +471,7 @@ export default function Home() {
           </Center>
 
           {/* fonctionalites */}
-          <Heading textAlign={"center"}>Fonctionalités</Heading>
+          {/* <Heading textAlign={"center"}>Fonctionalités</Heading>
           <Text
             textAlign={"center"}
             w={{ base: "100%", md: "60%" }}
@@ -499,38 +501,37 @@ export default function Home() {
                 />
               ))}
             </Flex>
-          </Center>
+          </Center> */}
         </Center>
 
         {/* a propos de nous  */}
-        <Center w={"100%"} h={{ base: "100vh", md: "70vh" }}>
+        <Center w={"100%"} h={{ base: "100vh", md: "90vh" }}>
           <Center
             w={{ base: "90%", md: "70%" }}
-            h={{ base: "90%", md: "90%" }}
-            mt={"2em"}
+            h={{ base: "90%", md: "70%" }}
+            // mt={"2em"}
             boxShadow={"rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"}
-            borderRadius={"3xl"}
-            role="group"
-            _hover={{ bg: "#ade8f427" }}
+            // borderRadius={"3xl"}
+            // role="group"
+            // _hover={{ bg: "#ade8f427" }}
           >
             <Center
               w={"80%"}
               h={"90%"}
               flexDirection={"column"}
-              // bg={colorScheme}
             >
               <Box w={"100%"} mb={"2em"}>
                 <Heading
                   color={colorScheme}
-                  // textAlign={"center"}
-                  transform={{ base: "translateX(0%)", md: "translateX(30%)" }}
-                  _groupHover={{
-                    transform: {
-                      base: "translateX(0%)",
-                      md: "translateX(0%)",
-                    },
-                    transition: "1s",
-                  }}
+                  // transform={{ base: "translateX(0%)", md: "translateX(30%)" }}
+                  textAlign={'center'}
+                  // _groupHover={{
+                  //   transform: {
+                  //     base: "translateX(0%)",
+                  //     md: "translateX(0%)",
+                  //   },
+                  //   transition: "1s",
+                  // }}
                 >
                   A propos de nous
                 </Heading>
@@ -544,11 +545,11 @@ export default function Home() {
                   w={{ base: "100%", md: "50%" }}
                   h={{ base: "auto", md: "100%" }}
                   transform={{ base: "translateY(0%)", md: "translateY(15%)" }}
-                  _groupHover={{
-                    transform: "translateY(0%)",
-                    transition: "1s",
-                    fontStyle: "italic",
-                  }}
+                  // _groupHover={{
+                  //   transform: "translateY(0%)",
+                  //   transition: "1s",
+                  //   fontStyle: "italic",
+                  // }}
                 >
                   <Text>
                     {" "}
@@ -566,11 +567,11 @@ export default function Home() {
                   w={{ base: "100%", md: "50%" }}
                   h={{ base: "auto", md: "100%" }}
                   transform={{ base: "translateY(0%)", md: "translateY(15%)" }}
-                  _groupHover={{
-                    transform: "translateY(0%)",
-                    transition: "1s",
-                    fontStyle: "italic",
-                  }}
+                  // _groupHover={{
+                  //   transform: "translateY(0%)",
+                  //   transition: "1s",
+                  //   fontStyle: "italic",
+                  // }}
                 >
                   <Text>
                     {" "}
