@@ -8,7 +8,7 @@ const Dashboard = () => {
 	
   return (
     <>
-    <Seo title="Page de gestion"/>
+    <Seo title="Page de Gestion"/>
 
     <PageHeader title="Bienvenue sur la Page de gestion" item="Home" active_item="Project Dashboard"/>
     

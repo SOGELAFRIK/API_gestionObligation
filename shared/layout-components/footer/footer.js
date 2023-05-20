@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="container">
         <div className="row row-sm">
             <div className="col-md-12">
-                <span>Copyright © 2023 <a href="#!">r-my</a>. Designed by <a href="#">r-my</a> All rights reserved.</span>
+                <span>Copyright © 2023 <a href="#!">R-MY</a>. Designed by <a href="#">SOGEL AFRICA</a> All rights reserved.</span>
             </div>
         </div>
     </div>

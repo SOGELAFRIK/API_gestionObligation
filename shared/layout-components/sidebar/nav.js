@@ -135,7 +135,7 @@ export const MENUITEMS = [
         // ],
       },
       {
-        title: "ROLE",
+        title: "PROFILS",
         icon: "ti-shopping-cart-full",
         path: "/components/Role",
         type: "link",
@@ -145,19 +145,55 @@ export const MENUITEMS = [
       },
     ],
   },
-  // {
-  //   menutitle: "LANDINGPAGE",
-  //   Items: [
-  //     {
-  //       path: "/components/landingpage/landingpage",
-  //       icon: "ti-layout",
-  //       type: "link",
-  //       active: false,
-  //       selected: false,
-  //       title: "Landingpage",
-  //     },
-  //   ],
-  // },
+  {
+    menutitle: "PARAMETRES",
+    Items: [
+      {
+        path: "/AddText",
+        icon: "ti-layout",
+        type: "link",
+        active: false,
+        selected: false,
+        title: "Ajouter Texte",
+      }, {
+        path: "/AddArt",
+        icon: "ti-layout",
+        type: "link",
+        active: false,
+        selected: false,
+        title: "Ajouter Article",
+      }, {
+        path: "/AddChap",
+        icon: "ti-layout",
+        type: "link",
+        active: false,
+        selected: false,
+        title: "Ajouter Chapitre",
+      }, {
+        path: "/AddEntity",
+        icon: "ti-layout",
+        type: "link",
+        active: false,
+        selected: false,
+        title: "Creer Entite",
+      }, {
+        path: "/Security",
+        icon: "ti-layout",
+        type: "link",
+        active: false,
+        selected: false,
+        title: "Securite",
+      },{
+        path: "/Notifications",
+        icon: "ti-layout",
+        type: "link",
+        active: false,
+        selected: false,
+        title: "Notifications",
+      },
+      
+    ],
+  },
   // {
   //   menutitle: "APPLICATIONS",
   //   Items: [

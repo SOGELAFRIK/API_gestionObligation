@@ -43,8 +43,10 @@ import {
   TextField,
 } from "@mui/material";
 import { DatePicker } from "@mui/lab";
+import DataTable from "./TableData";
+import Seo from "../../../shared/layout-components/seo/seo";
 
-export default function UsersIn() {
+const UsersIn = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -60,12 +62,23 @@ export default function UsersIn() {
     email = number,
     role = number,
     role1 = number,
-    role2= number,
+    role2 = number,
     role3 = number,
     role4 = number,
-    role5 = number,
+    role5 = number
   ) {
-    return { name, surname, number, email, role,role1,role2,role3,role4,role5, };
+    return {
+      name,
+      surname,
+      number,
+      email,
+      role,
+      role1,
+      role2,
+      role3,
+      role4,
+      role5,
+    };
   }
   const rows = [
     createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
@@ -77,13 +90,194 @@ export default function UsersIn() {
 
   return (
     <>
+      <Seo title="VUE TABLEAU" />
       <Helmet>
         <body className="ltr main-body leftmenu"></body>
       </Helmet>
-      <Provider store={store}>
+      <div className="inner-body mt-3">
+        <Button
+          onClick={handleOpen}
+          className="float-md-right btn mb-3"
+          sx={{
+            color: "white",
+            backgroundColor: "blue",
+            colorScheme: "blue",
+          }}
+        >
+          CREER OBLIGATION
+        </Button>
+
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="parent-modal-title"
+          aria-describedby="parent-modal-description"
+          sx={{ marginLeft: "30%" }}
+        >
+          <Box
+            width={900}
+            bgcolor={"white"}
+            mt={10}
+            pl={2}
+            pt={2}
+            border={"2px solid black"}
+            boxShadow={10}
+            borderRadius={5}
+          >
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <TextField
+                helperText="Entrez le titre de l'obligation"
+                id="demo-helper-text-misaligned"
+                label="Titre"
+              />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <TextField
+                helperText="Entrez une description"
+                id="demo-helper-text-misaligned"
+                label="Description"
+              />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <FormLabel>Ajouter Fichier</FormLabel>
+              <Input
+                type="file"
+                sx={{ marginTop: "-10px" }}
+                placeholder="responsable"
+              />
+            </FormControl>
+            <FormControl sx={{ width: "25ch" }}>
+              <TextField
+                helperText="Ecrivez un article"
+                id="demo-helper-text-misaligned"
+                label="Article Associe"
+              />
+            </FormControl>
+            <br />
+            <br />
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <FormLabel>Date de Debut</FormLabel>
+              <Input type="date" placeholder="responsable" />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <FormLabel>Date de Fin</FormLabel>
+              <Input type="date" placeholder="responsable" />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <FormLabel>Date de Mise a Jour</FormLabel>
+              <Input type="date" placeholder="responsable" />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginTop: "20px" }}>
+              <InputLabel id="demo-simple-select-label">Risques</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Risques"
+              >
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            <br />
+            <br />
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <FormLabel>Date de Debut</FormLabel>
+              <Input type="date" placeholder="responsable" />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <FormLabel>Date de Fin</FormLabel>
+              <Input type="date" placeholder="responsable" />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginRight: 2 }}>
+              <FormLabel>Date de Mise a Jour</FormLabel>
+              <Input type="date" placeholder="responsable" />
+            </FormControl>
+            <FormControl sx={{ width: "25ch", marginTop: "20px" }}>
+              <InputLabel id="demo-simple-select-label">Risques</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Risques"
+              >
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            <br />
+            <br />
+            <Button onClick={handleClose} sx={{ color: "gray" }}>
+              Fermer
+            </Button>
+            <Button color="primary">Valider</Button>
+          </Box>
+        </Modal>
+        <TableContainer
+          component={Paper}
+          variant="outlined"
+          bgcolor={"white"}
+          sx={{ backgroundColor: "white", colorScheme: "white" }}
+        >
+          <Table sx={{ minWidth: 320 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Titre</TableCell>
+                <TableCell align="right">Description</TableCell>
+                <TableCell align="right">Date De Creation</TableCell>
+                <TableCell align="right">Date De Fin</TableCell>
+                <TableCell align="right">Mise a Jour</TableCell>
+                <TableCell align="right">Risque</TableCell>
+                <TableCell align="right">Nom Du Fichier</TableCell>
+                <TableCell align="right">Article Associe</TableCell>
+                <TableCell align="right">Entite</TableCell>
+                <TableCell align="right">Commanditaire</TableCell>
+                <TableCell align="right">Executeur</TableCell>
+                <TableCell align="right">Controlleur</TableCell>
+
+                <TableCell align="right">Actions</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.name} sx={{}}>
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.surname}</TableCell>
+                  <TableCell align="right">{row.number}</TableCell>
+                  <TableCell align="right">{row.email}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
+                  <TableCell
+                    align="center"
+                    spacing="4px"
+                    sx={{ justifyContent: "space-around" }}
+                  >
+                    <i class="fas fa-edit mr-2 " role="button"></i>
+                    <i class="fas fa-trash-alt " role="button"></i>
+                    <i class="fas fa-file-export    "></i>
+                    <i class="fas fa-eye    "></i>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+        <DataTable />
+        {/* <{children}/> */}
+      </div>
+      {/* <Provider store={store}>
         <div className="horizontalMenucontainer">
           <div className="page">
-            <Header />
+            <Header /> 
             <Sidebar />
 
             <div className="main-content side-content pt-0">
@@ -92,183 +286,7 @@ export default function UsersIn() {
                 // onClick={() => remove()}
               >
                 <h1 color="red"></h1>
-                <div className="inner-body">
-                  <Button
-                    onClick={handleOpen}
-                    className="float-md-right btn btn-primary "
-                  >
-                    CREER OBLIGATION
-                  </Button>
-
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="parent-modal-title"
-                    aria-describedby="parent-modal-description"
-                    sx={{ marginLeft: "30%" }}
-                  >
-                    <Box
-                      width={900}
-                      bgcolor={"white"}
-                      mt={10}
-                      pl={2}
-                      pt={2}
-                      border={"2px solid black"}
-                      boxShadow={10}
-                      borderRadius={5}
-                    >
-                      <FormControl sx={{ width: "25ch",marginRight:2 }}>
-                        <TextField
-                          helperText="Entrez le titre de l'obligation"
-                          id="demo-helper-text-misaligned"
-                          label="Titre"
-                        />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginRight:2 }}>
-                        <TextField
-                          helperText="Entrez une description"
-                          id="demo-helper-text-misaligned"
-                          label="Description"
-                        />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginRight:2}}>
-                        <FormLabel>Ajouter Fichier</FormLabel>
-                        <Input type="file" sx={{marginTop:"-10px"}} placeholder="responsable" />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch" }}>
-                        <TextField
-                          helperText="Ecrivez un article"
-                          id="demo-helper-text-misaligned"
-                          label="Article Associe"
-                        />
-                      </FormControl>
-                      <br />
-                      <br />
-                      <FormControl sx={{ width: "25ch" ,marginRight:2}}>
-                        <FormLabel>Date de Debut</FormLabel>
-                        <Input type="date" placeholder="responsable" />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginRight:2 }}>
-                        <FormLabel>Date de Fin</FormLabel>
-                        <Input type="date" placeholder="responsable" />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginRight:2 }}>
-                        <FormLabel>Date de Mise a Jour</FormLabel>
-                        <Input type="date" placeholder="responsable" />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginTop:"20px" }}>
-                        <InputLabel id="demo-simple-select-label">
-                          Risques
-                        </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                         
-                          label="Risques"
-                         
-                        >
-                          <MenuItem value={10}>Ten</MenuItem>
-                          <MenuItem value={20}>Twenty</MenuItem>
-                          <MenuItem value={30}>Thirty</MenuItem>
-                        </Select>
-                      </FormControl>
-                      <br />
-                      <br />
-                      <FormControl sx={{ width: "25ch" ,marginRight:2}}>
-                        <FormLabel>Date de Debut</FormLabel>
-                        <Input type="date" placeholder="responsable" />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginRight:2 }}>
-                        <FormLabel>Date de Fin</FormLabel>
-                        <Input type="date" placeholder="responsable" />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginRight:2 }}>
-                        <FormLabel>Date de Mise a Jour</FormLabel>
-                        <Input type="date" placeholder="responsable" />
-                      </FormControl>
-                      <FormControl sx={{ width: "25ch",marginTop:"20px" }}>
-                        <InputLabel id="demo-simple-select-label">
-                          Risques
-                        </InputLabel>
-                        <Select
-                          labelId="demo-simple-select-label"
-                          id="demo-simple-select"
-                         
-                          label="Risques"
-                         
-                        >
-                          <MenuItem value={10}>Ten</MenuItem>
-                          <MenuItem value={20}>Twenty</MenuItem>
-                          <MenuItem value={30}>Thirty</MenuItem>
-                        </Select>
-                      </FormControl>
-                      <br />
-                      <br />
-                      <Button onClick={handleClose} sx={{ color: "gray" }}>
-                        Fermer
-                      </Button>
-                      <Button color="primary">Valider</Button>
-                    </Box>
-                  </Modal>
-                  <TableContainer
-                    component={Paper}
-                    variant="outlined"
-                    bgcolor={"white"}
-                    sx={{ backgroundColor: "white", colorScheme: "white" }}
-                  >
-                    <Table sx={{ minWidth: 320 }} aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell>Titre</TableCell>
-                          <TableCell align="right">Description</TableCell>
-                          <TableCell align="right">Date De Creation</TableCell>
-                          <TableCell align="right">Date De Fin</TableCell>
-                          <TableCell align="right">Mise a Jour</TableCell>
-                          <TableCell align="right">Risque</TableCell>
-                          <TableCell align="right">Nom Du Fichier</TableCell>
-                          <TableCell align="right">Article Associe</TableCell>
-                          <TableCell align="right">Entite</TableCell>
-                          <TableCell align="right">Commenditaire</TableCell>
-                          <TableCell align="right">Executeur</TableCell>
-                          <TableCell align="right">Controlleur</TableCell>
-                          
-                          <TableCell align="right">Actions</TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {rows.map((row) => (
-                          <TableRow key={row.name} sx={{}}>
-                            <TableCell component="th" scope="row">
-                              {row.name}
-                            </TableCell>
-                            <TableCell align="right">{row.surname}</TableCell>
-                            <TableCell align="right">{row.number}</TableCell>
-                            <TableCell align="right">{row.email}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell align="right">{row.role}</TableCell>
-                            <TableCell
-                              align="center"
-                              spacing="4px"
-                              sx={{ justifyContent: "space-around" }}
-                            >
-                              <i class="fas fa-edit mr-2 " role="button"></i>
-                              <i class="fas fa-trash-alt " role="button"></i>
-                              <i class="fas fa-file-export    "></i>
-                              <i class="fas fa-eye    "></i>
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                  {/* <{children}/> */}
-                </div>
+                
               </div>
             </div>
             <Rightside />
@@ -276,9 +294,12 @@ export default function UsersIn() {
 
           <Switcher />
           <TabToTop />
-          <Footer />
+         
         </div>
-      </Provider>
+      </Provider> */}
     </>
   );
-}
+};
+UsersIn.layout = "Contentlayout";
+
+export default UsersIn;

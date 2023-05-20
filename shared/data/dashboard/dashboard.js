@@ -1,6 +1,17 @@
-import { Box, CircularProgress, Stack,Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  FormControl,
+  Input,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  Typography,
+} from "@mui/material";
 import React from "react";
-import faker from '@faker-js/faker';
+import faker from "@faker-js/faker";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,11 +20,12 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js'
+} from "chart.js";
 
-import { Bar } from 'react-chartjs-2';
+import { Bar } from "react-chartjs-2";
+import CustomPaginationActionsTable from "./tableData";
 
-const labels =[ "CIRCULAIRE N* 01-21-2017/CB/C...."]
+const labels = ["CIRCULAIRE N* 01-21-2017/CB/C...."];
 //pas utile
 // import ReactApexChart from "react-apexcharts";
 // import {
@@ -79,19 +91,19 @@ export const data = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
-      data: labels.map(() => Math.floor(Math.random()*10)),
-      backgroundColor: 'rgb(255, 99, 132)',
+      label: "Dataset 1",
+      data: labels.map(() => Math.floor(Math.random() * 10)),
+      backgroundColor: "rgb(255, 99, 132)",
     },
     {
-      label: 'Dataset 2',
-      data: labels.map(() =>Math.floor(Math.random()*10)),
-      backgroundColor: 'rgb(75, 192, 192)',
+      label: "Dataset 2",
+      data: labels.map(() => Math.floor(Math.random() * 10)),
+      backgroundColor: "rgb(75, 192, 192)",
     },
     {
-      label: 'Dataset 3',
-      data: labels.map(() => Math.floor(Math.random()*10)),
-      backgroundColor: 'rgb(53, 162, 235)',
+      label: "Dataset 3",
+      data: labels.map(() => Math.floor(Math.random() * 10)),
+      backgroundColor: "rgb(53, 162, 235)",
     },
   ],
 };
@@ -99,26 +111,24 @@ export const data2 = {
   labels,
   datasets: [
     {
-      label: 'Dataset 1',
-      data: labels.map(() => Math.floor(Math.random()*10)),
-      backgroundColor: 'rgb(255, 99, 132)',
+      label: "Dataset 1",
+      data: labels.map(() => Math.floor(Math.random() * 10)),
+      backgroundColor: "rgb(255, 99, 132)",
     },
     {
-      label: 'Dataset 2',
-      data: labels.map(() =>Math.floor(Math.random()*10)),
-      backgroundColor: 'rgb(75, 192, 192)',
+      label: "Dataset 2",
+      data: labels.map(() => Math.floor(Math.random() * 10)),
+      backgroundColor: "rgb(75, 192, 192)",
     },
     {
-      label: 'Dataset 3',
-      data: labels.map(() => Math.floor(Math.random()*10)),
-      backgroundColor: 'rgb(53, 162, 235)',
+      label: "Dataset 3",
+      data: labels.map(() => Math.floor(Math.random() * 10)),
+      backgroundColor: "rgb(53, 162, 235)",
     },
   ],
 };
 
 const Dashboardshare = () => {
-  
-
   // const TASKS = [
   // {
   //   Task: "EVALUATION DU DESIGN",
@@ -926,30 +936,131 @@ const Dashboardshare = () => {
     // 				</div>
     // 				{/* <!-- col end --> */}
     // 			</div>
-    <>
-    <Stack direction="row" spacing={2}>
-      <Box  borderRadius={'5px'} sx={{width:"33%",border:'1px solid black'}}>
-        <Box sx={{padding:'10px'}}>
-        <Bar options={options} data={data} />
-        </Box>
-      
-      </Box>
-      <Box borderRadius={'5px'} sx={{width:"33%",border:'1px solid black'}} >
-        <Box sx={{padding:'10px'}}>
-        <Bar options={options} data={data2} />
-        </Box>
-     
-      </Box>
-      <Box sx={{width:"33%"}} >
-          <Box border={"1px solid grey"} sx={{backgroundColor:"#E5E9F0"}} borderRaduis={"20px"} width={"90%"} height={"fit-content"}>
-            <Typography paddingLeft={"20%"}>Nombre d'obligations</Typography>
-            <Typography variant={'h2'}>9</Typography>
+    <Box>
+      <Typography paddingLeft={"25%"} variant={"h4"}>
+        Statistiques sur l'ensemble des textes reglementaires
+      </Typography>
+      <Stack direction="row" spacing={2}>
+        <Box
+          borderRadius={"5px"}
+          sx={{ width: "33%", border: "1px solid black" }}
+        >
+          <Box sx={{ padding: "10px" }}>
+            <Bar options={options} data={data} />
           </Box>
-      </Box>
-
-    </Stack>
-    </>
-    
+        </Box>
+        <Box
+          borderRadius={"5px"}
+          sx={{ width: "33%", border: "1px solid black" }}
+        >
+          <Box sx={{ padding: "10px" }}>
+            <Bar options={options} data={data2} />
+          </Box>
+        </Box>
+        <Box sx={{ width: "33%" }}>
+          <Box
+            border={"1px solid grey"}
+            sx={{ backgroundColor: "#E5E9F0" }}
+            borderRaduis={"5px"}
+            width={"90%"}
+            marginBottom={"20px"}
+            height={"fit-content"}
+          >
+            <Typography paddingLeft={"20%"} paddingTop={"20px"}>
+              Nombre d'obligations
+            </Typography>
+            <Typography variant={"h2"} paddingLeft={"10%"}>
+              9
+            </Typography>
+          </Box>
+          <Box
+            border={"1px solid grey"}
+            sx={{ backgroundColor: "#E0DAFD" }}
+            borderRaduis={"20px"}
+            width={"90%"}
+            height={"fit-content"}
+          >
+            <Typography paddingLeft={"20%"} paddingTop={"20px"}>
+              Nombre de Plan d'Actions
+            </Typography>
+            <Typography variant={"h2"} paddingLeft={"10%"}>
+              6
+            </Typography>
+          </Box>
+        </Box>
+      </Stack>
+      <Typography paddingLeft={"25%"} variant={"h4"} paddingY={"25px"}>
+        Statistiques (GLOBALES/PAR ORGANISATION)
+      </Typography>
+      <Stack direction="row" spacing={2}  marginBottom={"30px"}>
+        <Box
+          border={"1px solid grey"}
+          sx={{ backgroundColor: "#E5E9F0" }}
+          borderRaduis={"5px"}
+          width={"33%"}
+          marginBottom={"20px"}
+          height={"fit-content"}
+        >
+          <Typography paddingLeft={"20%"} paddingTop={"20px"}>
+            Nombre d'obligations
+          </Typography>
+          <Typography variant={"h2"} paddingLeft={"10%"}>
+            9
+          </Typography>
+        </Box>
+        <Box width={"100%"} sx={{ backgroundColor: "white" }}>
+          <Box
+            display={"flex"}
+            borderBottom={"1px solid #fafafa"}
+            sx={{ backgroundColor: "#fafafa" }}
+            justifyContent={"space-between"}
+          >
+            <Typography sx={{ border: "none" }} paddingY={"20px"}>
+              Controle de Conformite
+            </Typography>
+            <Button
+              sx={{
+                backgroundColor: "#f2f2f2",
+                border: "1px solid #f2f2f2",
+                height: "fit-content",
+                margin: "20px",
+              }}
+            >
+              Reset
+            </Button>
+          </Box>
+          <Box display={"flex"} margin={"20px"} padding={"20px"} width={"60%"}>
+            <Typography
+              fontSize={"20px"}
+              sx={{ border: "1px solid gray" }}
+              width={"20%"}
+              
+            >
+              {" "}
+              Texte Regle....
+            </Typography>
+            <Box width={"33%"}>
+            <FormControl fullWidth sx={{paddingTop:"20px",marginTop:"10px"}} >
+              <InputLabel id="demo-simple-select-label">Choisir une option de filtre </InputLabel>
+              <Select
+                width={"15%"}
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                label="Age"
+              >
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            </Box>
+            
+            <Input type={"text"} variant="outlined"  sx={{borderTop:"1px solid #fafafa"}} width={"60%"}/>
+          </Box>
+        </Box>
+      </Stack>
+      <CustomPaginationActionsTable/>
+    </Box>
   );
 };
 

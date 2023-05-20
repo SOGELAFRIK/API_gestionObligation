@@ -32,7 +32,7 @@ import Header from "../../../shared/layout-components/header/header";
 import { Helmet } from "react-helmet";
 import { Box, Button, Input, Modal, Select } from "@mui/material";
 
-export default function UsersIn() {
+const UsersIn = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -59,21 +59,8 @@ export default function UsersIn() {
       <Helmet>
         <body className="ltr main-body leftmenu"></body>
       </Helmet>
-      <Provider store={store}>
-        <div className="horizontalMenucontainer">
-          <div className="page">
-            <Header />
-            <Sidebar />
-
-            <div className="main-content side-content pt-0">
-              
-              <div
-                className="main-container container-fluid"
-                // onClick={() => remove()}
-              >
-                <h1 color="red"></h1>
-                <div className="inner-body" >
-                <Button onClick={handleOpen}  className="float-md-right col-md-4" >CREER ROLE</Button>
+      <div className="inner-body mt-3" >
+                <Button onClick={handleOpen}  className="float-md-right " sx={{backgroundColor:"blue",colorScheme:"blue",color:"white"}}>CREER ROLE</Button>
                
               <Modal
                 open={open}
@@ -90,8 +77,8 @@ export default function UsersIn() {
                   <Button color="primary">Valider</Button>
                 </Box>
               </Modal>
-                  <TableContainer component={Paper} bgcolor={"white"} >
-                    <Table sx={{ minWidth: 200, maxwidth:320 }}  aria-label="simple table">
+                  <TableContainer bgcolor={"white"} >
+                    <Table sx={{ minWidth: 200, maxwidth:320,backgroundColor:'white', colorScheme:'white' }}  aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell>Nom</TableCell>
@@ -127,16 +114,9 @@ export default function UsersIn() {
                   </TableContainer>
                   {/* <{children}/> */}
                 </div>
-              </div>
-            </div>
-            <Rightside />
-          </div>
-
-          <Switcher />
-          <TabToTop />
-          <Footer />
-        </div>
-      </Provider>
     </>
   );
 }
+UsersIn.layout = "Contentlayout"
+
+export default UsersIn

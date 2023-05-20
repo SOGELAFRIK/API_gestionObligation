@@ -32,7 +32,7 @@ const SideBar = () => {
     mainContent.addEventListener("click", mainContentClickFn);
     return () => {
       mainContent.removeEventListener("click", mainContentClickFn);
-    };
+    }; 
   }, [location.pathname, mainContentClickFn, setSidemenu]);
 
 
@@ -253,7 +253,7 @@ const SideBar = () => {
                       alt={"logo-4"}
                     />
                 </Link> */}
-                <h1 color="white">R-MY</h1>
+                <h1 color="white" className="input-file">R-MY</h1>
               </div>
               <div
                 className="main-body-1 main-sidebar-body"
