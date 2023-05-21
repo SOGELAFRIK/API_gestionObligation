@@ -56,10 +56,10 @@ const HowDoCard: React.FC<HowDoCardProps> = ({ howDo, colorScheme }) => {
         justifyContent={"center"}
         flexDirection={"column"}
         textAlign={"left"}
-        borderWidth={'2px'}
+        borderWidth={"2px"}
         borderColor={colorScheme}
-        borderRadius={'15px'}
-       /* _hover={{
+        borderRadius={"15px"}
+        /* _hover={{
           alignItems: "center",
           borderColor: colorScheme,
           borderWidth: "2px",
@@ -69,7 +69,9 @@ const HowDoCard: React.FC<HowDoCardProps> = ({ howDo, colorScheme }) => {
         role="group"
       >
         <Heading color={colorScheme}>{howDo.title}</Heading>
-        <Text /*_groupHover={{ textAlign: "center" }}*/ textAlign={'center'}>{howDo.description}</Text>
+        <Text /*_groupHover={{ textAlign: "center" }}*/ textAlign={"center"}>
+          {howDo.description}
+        </Text>
         <Box boxSize="sm">
           <Image
             src={howDo.imageLink}
@@ -183,7 +185,7 @@ export default function Home() {
     setColorScheme(e);
   };
 
-  const [bannerColor, setBannerColor] = useState(colorPallete.primary_blue);
+  const [bannerColor, setBannerColor] = useState("transparent");
   const [blur, setBlur] = useState(true);
 
   useEffect(() => {
@@ -204,7 +206,7 @@ export default function Home() {
         setBannerColor("#1b263b72");
         setBlur(true);
       } else {
-        setBannerColor(colorPallete.primary_blue);
+        setBannerColor("transparent");
         setBlur(false);
       }
     }
@@ -287,72 +289,91 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* la box qui contient toute la page  */}
       <Box w={"100%"}>
-        {/* le <header></header> */}
-        <Center
+        {/* le header avec la navigation et les textes  */}
+        <Flex
           w={"100%"}
-          h={"7vh"}
-          bg={bannerColor}
-          position={"fixed"}
-          zIndex={"banner"}
-          backdropFilter={"auto"}
-          backdropBlur={blur ? "8px" : "0px"}
+          h={"100vh"}
+          bgImage={"url(5.jpg)"}
+          bgPosition={"center"}
+          bgRepeat={"no-repeat"}
+          bgSize={"cover"}
+          flexDirection={"column"}
         >
-          <Flex
-            w={"90%"}
-            h={"100%"}
-            color={colorScheme}
-            justifyContent={"space-between"}
-            alignItems={"center"}
+          {/* la navigation */}
+          <Center
+            w={"100%"}
+            h={"7%"}
+            bg={bannerColor}
+            position={blur ? "fixed" : "relative"}
+            zIndex={"banner"}
+            backdropFilter={"auto"}
+            backdropBlur={blur ? "8px" : "0px"}
           >
-            <Link href="#" _hover={{ textDecoration: "none" }}>
-              <Heading>RMY</Heading>
-            </Link>
-            <Link href="#" _hover={{ textDecoration: "none" }}>
-              <Text>Connexion</Text>
-            </Link>
-          </Flex>
-        </Center>
-
-        <Center w={"100%"} h={"100vh"} bg={colorPallete.primary_blue}>
-          <Flex w={"90%"} h={"90%"} bg={colorPallete.white}>
             <Flex
-              w={{ base: "100%", sm: "50%" }}
+              w={"90%"}
               h={"100%"}
-              bg={colorPallete.primary_blue}
-              align={"start"}
-              justifyContent={"center"}
-              flexDirection={"column"}
+              color={colorScheme}
+              justifyContent={"space-between"}
+              alignItems={"center"}
             >
-              <Heading color={colorPallete.white}>
-                Gestion et suivi des<br></br>
-                obligations avec<br></br>
-              </Heading>
-              <Heading color={colorScheme}>RMY</Heading>
-              <Text color={colorPallete.white}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                <br></br>
-                Tempore enim eaque veniam aliquam porro quae ut aperiam<br></br>
-                fugit ab commodi est voluptatem nesciunt illo quam iure
-                mollitia,
-              </Text>
-              <Button
-                colorScheme="blue"
-                bg={colorScheme}
-                w={"15em"}
-                borderRadius={"full"}
-                mt={"5"}
-              >
-                Button
-              </Button>
+              <Link href="#" _hover={{ textDecoration: "none" }}>
+                <Heading>RMY</Heading>
+              </Link>
+              <Link href="#" _hover={{ textDecoration: "none" }}>
+                <Text>Connexion</Text>
+              </Link>
             </Flex>
-            {isLargerThan768 ? (
-              <Center w={"50%"} h={"100%"} bg={colorScheme}>
-                <Text>image</Text>
-              </Center>
-            ) : null}
-          </Flex>
-        </Center>
+          </Center>
+          {/* le contenues du header  */}
+          <Center w={"100%"} h={"93%"}>
+            <Flex w={"90%"} h={"90%"}>
+              <Flex
+                w={{ base: "100%", sm: "50%" }}
+                h={"100%"}
+                align={"start"}
+                justifyContent={"center"}
+                flexDirection={"column"}
+              >
+                <Heading color={colorPallete.white}>
+                  Gestion et suivi des<br></br>
+                  obligations avec<br></br>
+                </Heading>
+                <Heading color={colorScheme}>RMY</Heading>
+                <Text color={colorPallete.white}>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  <br></br>
+                  Tempore enim eaque veniam aliquam porro quae ut aperiam
+                  <br></br>
+                  fugit ab commodi est voluptatem nesciunt illo quam iure
+                  mollitia,
+                </Text>
+                <Button
+                  colorScheme="blue"
+                  bg={colorScheme}
+                  w={"15em"}
+                  borderRadius={"full"}
+                  mt={"5"}
+                >
+                  Button
+                </Button>
+              </Flex>
+              {isLargerThan768 ? (
+                <Center
+                  w={"50%"}
+                  h={"100%"}
+                  bgImage={"url(4.jpg)"}
+                  bgSize={"cover"}
+                  bgRepeat={"no-repeat"}
+                  bgPosition={"center"}
+                >
+                  {/* <Text>image</Text> */}
+                </Center>
+              ) : null}
+            </Flex>
+          </Center>
+        </Flex>
 
         {/* choisir son style  */}
         <Center
@@ -515,16 +536,12 @@ export default function Home() {
             // role="group"
             // _hover={{ bg: "#ade8f427" }}
           >
-            <Center
-              w={"80%"}
-              h={"90%"}
-              flexDirection={"column"}
-            >
+            <Center w={"80%"} h={"90%"} flexDirection={"column"}>
               <Box w={"100%"} mb={"2em"}>
                 <Heading
                   color={colorScheme}
                   // transform={{ base: "translateX(0%)", md: "translateX(30%)" }}
-                  textAlign={'center'}
+                  textAlign={"center"}
                   // _groupHover={{
                   //   transform: {
                   //     base: "translateX(0%)",

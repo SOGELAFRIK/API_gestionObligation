@@ -99,6 +99,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  /* color: transparent; */
   /* transform: translateX(20%); */
 }
 
