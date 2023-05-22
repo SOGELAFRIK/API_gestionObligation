@@ -295,11 +295,13 @@ export default function Home() {
         <Flex
           w={"100%"}
           h={"100vh"}
-          bgImage={"url(5.jpg)"}
+          bgImage={"url(overlay.svg)"}
           bgPosition={"center"}
           bgRepeat={"no-repeat"}
           bgSize={"cover"}
           flexDirection={"column"}
+          // filter="auto"
+          // brightness="40%"
         >
           {/* la navigation */}
           <Center
@@ -350,11 +352,12 @@ export default function Home() {
                   mollitia,
                 </Text>
                 <Button
-                  colorScheme="blue"
+                  color={colorPallete.white}
                   bg={colorScheme}
-                  w={"15em"}
-                  borderRadius={"full"}
+                  w={"10em"}
+                  borderRadius={"5px"}
                   mt={"5"}
+                  _hover={{ bg: colorScheme }}
                 >
                   Button
                 </Button>
@@ -363,10 +366,12 @@ export default function Home() {
                 <Center
                   w={"50%"}
                   h={"100%"}
-                  bgImage={"url(4.jpg)"}
-                  bgSize={"cover"}
+                  bgImage={"url(hero.png)"}
+                  bgSize={"contain"}
                   bgRepeat={"no-repeat"}
                   bgPosition={"center"}
+                  filter="auto"
+                  brightness="40%"
                 >
                   {/* <Text>image</Text> */}
                 </Center>
@@ -428,7 +433,7 @@ export default function Home() {
         </Center>
 
         {/* comment ça marhce  */}
-        <Center
+        {/* <Center
           w={"100%"}
           h={{ base: "auto", md: "100vh" }}
           flexDirection={"column"}
@@ -450,7 +455,7 @@ export default function Home() {
               ))}
             </Flex>
           </Center>
-        </Center>
+        </Center> */}
 
         {/* nos avantages et fonctionalites */}
         <Center
