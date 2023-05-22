@@ -15,6 +15,8 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { SetStateAction, useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBolt } from "@fortawesome/free-solid-svg-icons";
 
 //--------------------------------------------assets------------------------------------------------------------------
 const colorPallete = {
@@ -357,9 +359,14 @@ export default function Home() {
                   w={"10em"}
                   borderRadius={"5px"}
                   mt={"5"}
-                  _hover={{ bg: colorScheme }}
+                  _hover={{
+                    bg: colorScheme,
+                    filter: "auto",
+                    brightness: "60%",
+                  }}
+                  leftIcon={<FontAwesomeIcon icon={faBolt} />}
                 >
-                  Button
+                  Demarer
                 </Button>
               </Flex>
               {isLargerThan768 ? (
