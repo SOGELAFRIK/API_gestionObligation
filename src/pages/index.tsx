@@ -380,7 +380,7 @@ export default function Home() {
                 <Center mb={"2em"}>
                   <FontAwesomeIcon
                     icon={faBoltLightning}
-                    size="2xl"
+                    size="sm"
                     style={{ color: colorScheme }}
                   />
                 </Center>
@@ -413,7 +413,7 @@ export default function Home() {
                     <FontAwesomeIcon
                       icon={faLightbulb}
                       style={{ color: "#ffba08" }}
-                      size="2xl"
+                      size="sm"
                     />
                   </Center>
                   <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
@@ -438,7 +438,7 @@ export default function Home() {
                   <FontAwesomeIcon
                     icon={faCloud}
                     style={{ color: colorScheme }}
-                    size="2xl"
+                    size="sm"
                   />
                 </Center>
 
