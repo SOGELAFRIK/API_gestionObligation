@@ -586,8 +586,12 @@ export default function Home() {
         <Center
           w={"100%"}
           h={"50vh"}
-          bg={colorPallete.black}
+          bg={
+            "linear-gradient(90deg, hsla(221, 59%, 75%, 1) 0%, hsla(216, 40%, 58%, 1) 100%)"
+          }
           flexDirection={"column"}
+          backdropFilter={"auto"}
+          backdropBlur={"8px"}
         >
           <Fade className="fadeCenter" direction="up" triggerOnce={true}>
             <Heading color={colorScheme}>RMY</Heading>
