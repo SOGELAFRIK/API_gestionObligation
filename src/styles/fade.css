@@ -1,9 +1,34 @@
 .bodyFade {
   width: 100%;
 }
-.fadeBgBanner{
-    width: 50%;
-    height: 100%;
+.fadeBgBanner {
+  width: 50%;
+  height: 100%;
+}
+.fadeCm {
+  width: 30%;
+  height: 100%;
+  /* background: tomato; */
+}
+.fadAdvantage{
+  width: 30%;
+  height: 100%;
+}
+.fadAbout{
+  width: 50%;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .fadeCm {
+    width: 100%;
+  }
+  .fadAdvantage{
+    width: 100%;
+  }
+  .fadAbout{
+    width: 100%;
+    height: 50%;
+  }
 }
 .fadeCenter {
   width: 100%;

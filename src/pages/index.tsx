@@ -28,6 +28,8 @@ const colorPallete = {
   white: "#fff",
   black: "#000",
   grey: "rgb(99, 115, 129)",
+  light_grey: "#f5f5f5",
+  light_blue: "#caf0f8",
 };
 const colorList = [
   { id: 1, color: "#023e8a" },
@@ -58,7 +60,7 @@ const Avantage: React.FC<Advantage> = ({ adavantageItem, colorScheme }) => {
   return (
     <>
       <Center
-        w={{ base: "100%", md: "30%" }}
+        w={{ base: "100%", md: "100%" }}
         h={{ base: "20em", md: "100%" }}
         mb={{ base: "2em", md: "0em" }}
         borderWidth={"2px"}
@@ -238,7 +240,8 @@ export default function Home() {
               >
                 <Fade
                   cascade
-                  direction="bottom-right"
+                  direction="right"
+                  duration={300}
                   triggerOnce={true}
                   className="fadeHeader"
                 >
@@ -278,7 +281,11 @@ export default function Home() {
 
               {/* l'immage en fond  */}
               {isLargerThan768 ? (
-                <Fade className="fadeBgBanner" direction="bottom-left" delay={1500} duration={2000}>
+                <Fade
+                  className="fadeBgBanner"
+                  direction="left"
+                  triggerOnce={true}
+                >
                   <Center
                     w={"100%"}
                     h={"100%"}
@@ -303,7 +310,12 @@ export default function Home() {
           mt={"4em"}
         >
           {/* l'entete du choix de style  */}
-          <Fade className="fadeCenter" cascade>
+          <Fade
+            className="fadeCenter"
+            cascade
+            direction="down"
+            triggerOnce={true}
+          >
             <Heading color={colorScheme} textAlign={"center"}>
               {"Definissez votre propre style pour l'affichage"}
             </Heading>
@@ -360,21 +372,27 @@ export default function Home() {
           <Heading color={colorScheme}>{"Comment ça marche ?"}</Heading>
           <Center w={"100%"} h={{ base: "auto", md: "70vh" }} mt={"2em"}>
             <Flex
-              w={"70%"}
+              w={{ base: "90%", md: "70%" }}
               h={{ base: "auto", md: "90%" }}
               flexDirection={{ base: "column", md: "row" }}
               justifyContent={"space-between"}
             >
-              {/* première box  */}
-              <Center
-                w={{ base: "100%", md: "30%" }}
-                h={{ base: "30em", md: "100%" }}
-                mb={{ base: "2em", md: "0em" }}
-                bg={"rgb(244, 246, 248)"}
-                borderRadius={"15px"}
-                flexDirection={"column"}
+              <Fade
+                className="fadeCm"
+                cascade
+                triggerOnce={true}
+                direction="up"
               >
-                {/* <Center mb={"2em"}>
+                {/* première box  */}
+                <Center
+                  w={{ base: "100%", md: "100%" }}
+                  h={{ base: "30em", md: "100%" }}
+                  mb={{ base: "2em", md: "0em" }}
+                  bg={"rgb(244, 246, 248)"}
+                  borderRadius={"15px"}
+                  flexDirection={"column"}
+                >
+                  {/* <Center mb={"2em"}>
                   <FontAwesomeIcon
                     icon={faBoltLightning}
                     size="sm"
@@ -382,37 +400,6 @@ export default function Home() {
                   />
                 </Center> */}
 
-                <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
-                  Bonne Performances
-                </Text>
-                <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Quidem nemo suscipit asperiores, officia fugiat ad.
-                </Text>
-              </Center>
-              {/* deuxieme box  */}
-              <Center
-                w={{ base: "100%", md: "30%" }}
-                h={{ base: "30em", md: "100%" }}
-                mb={{ base: "2em", md: "0em" }}
-                borderRadius={"15px"}
-                flexDirection={"column"}
-                boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
-              >
-                <Center
-                  w={"90%"}
-                  h={"90%"}
-                  borderRadius={"15px"}
-                  boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
-                  flexDirection={"column"}
-                >
-                  {/* <Center mb={"2em"}>
-                    <FontAwesomeIcon
-                      icon={faLightbulb}
-                      style={{ color: "#ffba08" }}
-                      size="sm"
-                    />
-                  </Center> */}
                   <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
                     Bonne Performances
                   </Text>
@@ -421,17 +408,48 @@ export default function Home() {
                     Quidem nemo suscipit asperiores, officia fugiat ad.
                   </Text>
                 </Center>
-              </Center>
-              {/* troisieme box  */}
-              <Center
-                w={{ base: "100%", md: "30%" }}
-                h={{ base: "30em", md: "100%" }}
-                mb={{ base: "2em", md: "0em" }}
-                bg={"rgb(244, 246, 248)"}
-                borderRadius={"15px"}
-                flexDirection={"column"}
-              >
-                {/* <Center mb={"2em"}>
+                {/* deuxieme box  */}
+                <Center
+                  w={{ base: "100%", md: "100%" }}
+                  h={{ base: "30em", md: "100%" }}
+                  mb={{ base: "2em", md: "0em" }}
+                  borderRadius={"15px"}
+                  flexDirection={"column"}
+                  boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
+                >
+                  <Center
+                    w={"90%"}
+                    h={"90%"}
+                    borderRadius={"15px"}
+                    boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
+                    flexDirection={"column"}
+                  >
+                    {/* <Center mb={"2em"}>
+                    <FontAwesomeIcon
+                      icon={faLightbulb}
+                      style={{ color: "#ffba08" }}
+                      size="sm"
+                    />
+                  </Center> */}
+                    <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
+                      Bonne Performances
+                    </Text>
+                    <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Quidem nemo suscipit asperiores, officia fugiat ad.
+                    </Text>
+                  </Center>
+                </Center>
+                {/* troisieme box  */}
+                <Center
+                  w={{ base: "100%", md: "100%" }}
+                  h={{ base: "30em", md: "100%" }}
+                  mb={{ base: "2em", md: "0em" }}
+                  bg={"rgb(244, 246, 248)"}
+                  borderRadius={"15px"}
+                  flexDirection={"column"}
+                >
+                  {/* <Center mb={"2em"}>
                   <FontAwesomeIcon
                     icon={faCloud}
                     style={{ color: colorScheme }}
@@ -439,15 +457,16 @@ export default function Home() {
                   />
                 </Center> */}
 
-                <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
-                  Sauvegarde
-                </Text>
-                <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Quidem nemo suscipit asperiores, officia fugiat ad.
-                </Text>
-              </Center>
-              {/* ---------------- */}
+                  <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
+                    Sauvegarde
+                  </Text>
+                  <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Quidem nemo suscipit asperiores, officia fugiat ad.
+                  </Text>
+                </Center>
+                {/* ---------------- */}
+              </Fade>
             </Flex>
           </Center>
         </Center>
@@ -480,70 +499,84 @@ export default function Home() {
               flexDirection={{ base: "column", md: "row" }}
               justifyContent={"space-between"}
             >
-              {advantageList.map((item) => (
-                <Avantage
-                  key={item.id}
-                  adavantageItem={item}
-                  colorScheme={colorScheme}
-                />
-              ))}
+              <Fade
+                direction="up"
+                cascade
+                className="fadAdvantage"
+                triggerOnce={true}
+              >
+                {advantageList.map((item) => (
+                  <Avantage
+                    key={item.id}
+                    adavantageItem={item}
+                    colorScheme={colorScheme}
+                  />
+                ))}
+              </Fade>
             </Flex>
           </Center>
         </Center>
 
         {/* a propos de nous  */}
-        <Center w={"100%"} h={{ base: "auto", md: "100vh" }}>
+        <Center w={"100%"} h={{ base: "auto", md: "100vh" }} mt={'4em'}>
           <Center
             w={{ base: "90%", md: "90%" }}
             h={{ base: "90%", md: "80%" }}
             bg={colorPallete.white}
             flexDirection={{ base: "column", md: "row" }}
           >
-            {/* first box  */}
-            <Center
-              w={{ base: "100%", md: "50%" }}
-              h={{ base: "70vh", md: "100%" }}
-              justifyContent={"start"}
-              alignItems={"start"}
-              flexDirection={"column"}
+            <Fade
+              direction="up"
+              cascade
+              className="fadAbout"
+              triggerOnce={true}
             >
-              <Text
-                textTransform={"uppercase"}
-                fontWeight={"bold"}
-                fontFamily={"'Public Sans', sans-serif"}
-                fontSize={"smaller"}
-                color={colorPallete.grey}
-                letterSpacing={"5px"}
+              {/* first box  */}
+              <Center
+                w={{ base: "100%", md: "100%" }}
+                h={{ base: "70vh", md: "100%" }}
+                justifyContent={"start"}
+                alignItems={"start"}
+                flexDirection={"column"}
               >
-                {" "}
-                a propos de RMY
-              </Text>
-              <Heading>Une solution simple et efficace.</Heading>
-              <Text color={"rgb(99, 115, 129)"}>
-                Elit aute dolor commodo incididunt irure sint eu fugiat est
-                veniam reprehenderit eu aliqua laborum. Ad amet exercitation
-                fugiat ex cupidatat est elit anim officia et reprehenderit
-                velit. Dolore non consequat magna ut aliquip est aute. Ut nisi
-                commodo est excepteur aliqua. Ex incididunt minim sint eu
-                officia. Ullamco culpa incididunt irure ut irure aute qui
-                sint.Esse elit adipisicing eu officia Lorem culpa et est
-                officia. Exercitation dolore ipsum fugiat commodo aute qui
-                cupidatat quis elit do ullamco labore ad do. Veniam esse sint
-                non incididunt esse ut proident mollit id aute nulla
-                exercitation nisi cupidatat.
-              </Text>
-            </Center>
-            {/* seconde box  */}
-            <Center
-              w={{ base: "100%", md: "50%" }}
-              h={{ base: "70vh", md: "100%" }}
-              bgImage={"url(02.png)"}
-              bgSize={"contain"}
-              bgRepeat={"no-repeat"}
-              bgPosition={"center"}
-            >
-              {/* <Image src="02.png" alt="Dan Abramov"  boxSize={'80%'}/> */}
-            </Center>
+                <Text
+                  textTransform={"uppercase"}
+                  fontWeight={"bold"}
+                  fontFamily={"'Public Sans', sans-serif"}
+                  fontSize={"smaller"}
+                  color={colorPallete.grey}
+                  letterSpacing={"5px"}
+                >
+                  {" "}
+                  a propos de RMY
+                </Text>
+                <Heading>Une solution simple et efficace.</Heading>
+                <Text color={"rgb(99, 115, 129)"}>
+                  Elit aute dolor commodo incididunt irure sint eu fugiat est
+                  veniam reprehenderit eu aliqua laborum. Ad amet exercitation
+                  fugiat ex cupidatat est elit anim officia et reprehenderit
+                  velit. Dolore non consequat magna ut aliquip est aute. Ut nisi
+                  commodo est excepteur aliqua. Ex incididunt minim sint eu
+                  officia. Ullamco culpa incididunt irure ut irure aute qui
+                  sint.Esse elit adipisicing eu officia Lorem culpa et est
+                  officia. Exercitation dolore ipsum fugiat commodo aute qui
+                  cupidatat quis elit do ullamco labore ad do. Veniam esse sint
+                  non incididunt esse ut proident mollit id aute nulla
+                  exercitation nisi cupidatat.
+                </Text>
+              </Center>
+              {/* seconde box  */}
+              <Center
+                w={{ base: "100%", md: "100%" }}
+                h={{ base: "70vh", md: "100%" }}
+                bgImage={"url(02.png)"}
+                bgSize={"contain"}
+                bgRepeat={"no-repeat"}
+                bgPosition={"center"}
+              >
+                {/* <Image src="02.png" alt="Dan Abramov"  boxSize={'80%'}/> */}
+              </Center>
+            </Fade>
           </Center>
         </Center>
 
