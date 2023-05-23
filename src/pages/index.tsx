@@ -481,7 +481,7 @@ export default function Home() {
           bg={colorScheme}
           color={colorPallete.white}
         >
-          <Heading textAlign={"center"}>
+          <Heading textAlign={"center"} mb={"10px"}>
             Quelques avantages de notre solution
           </Heading>
           <Text
@@ -548,11 +548,12 @@ export default function Home() {
                   fontSize={"smaller"}
                   color={colorPallete.grey}
                   letterSpacing={"5px"}
+                  mb={"10px"}
                 >
                   {" "}
                   a propos de RMY
                 </Text>
-                <Heading>Une solution simple et efficace.</Heading>
+                <Heading mb={"10px"}>Une solution simple et efficace.</Heading>
                 <Text color={"rgb(99, 115, 129)"}>
                   Elit aute dolor commodo incididunt irure sint eu fugiat est
                   veniam reprehenderit eu aliqua laborum. Ad amet exercitation
@@ -586,9 +587,7 @@ export default function Home() {
         <Center
           w={"100%"}
           h={"50vh"}
-          bg={
-            "linear-gradient(90deg, hsla(221, 59%, 75%, 1) 0%, hsla(216, 40%, 58%, 1) 100%)"
-          }
+          bg={colorPallete.black}
           flexDirection={"column"}
           backdropFilter={"auto"}
           backdropBlur={"8px"}
