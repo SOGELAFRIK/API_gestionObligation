@@ -205,7 +205,7 @@ export default function Home() {
           {/* la navigation */}
           <Center
             w={"100%"}
-            h={"7%"}
+            h={"10%"}
             bg={bannerColor}
             position={blur ? "fixed" : "relative"}
             zIndex={"banner"}
@@ -228,7 +228,7 @@ export default function Home() {
             </Flex>
           </Center>
           {/* le contenues du header  */}
-          <Center w={"100%"} h={"93%"}>
+          <Center w={"100%"} h={"90%"}>
             <Flex w={"90%"} h={"90%"}>
               {/* le texte de la banier  */}
               <Flex
@@ -318,15 +318,15 @@ export default function Home() {
             duration={300}
             triggerOnce={true}
           >
-            <Heading color={colorScheme} textAlign={"center"}>
+            <Heading color={colorScheme} textAlign={"center"} mb={"30px"}>
               {"Definissez votre propre style pour l'affichage"}
             </Heading>
-            <Text mt={"5"} textAlign={"center"}>
+            <Text textAlign={"center"}>
               {"En un clic deffinissez l'affichage"}{" "}
             </Text>
           </Fade>
 
-          <Center w={"100%"} mt={"4em"}>
+          <Center w={"100%"} mt={"0em"}>
             <Flex
               w={{ base: "100%", md: "80%" }}
               h={{ base: "auto", md: "70vh" }}
