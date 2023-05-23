@@ -246,12 +246,13 @@ export default function Home() {
                   className="fadeHeader"
                 >
                   {" "}
-                  <Heading color={colorPallete.white}>
-                    Gestion et suivi des<br></br>
-                    obligations avec<br></br>
+                  <Heading color={colorPallete.white} fontSize={"5xl"}>
+                    Gestion et suivi des obligations avec<br></br>
                   </Heading>
-                  <Heading color={colorScheme}>RMY</Heading>
-                  <Text color={colorPallete.white}>
+                  <Heading color={colorScheme} fontSize={"5xl"} mb={"30px"}>
+                    RMY
+                  </Heading>
+                  <Text color={colorPallete.white} mb={"30px"}>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                     <br></br>
                     Tempore enim eaque veniam aliquam porro quae ut aperiam
@@ -313,7 +314,8 @@ export default function Home() {
           <Fade
             className="fadeCenter"
             cascade
-            direction="down"
+            direction="up"
+            duration={300}
             triggerOnce={true}
           >
             <Heading color={colorScheme} textAlign={"center"}>
@@ -381,7 +383,7 @@ export default function Home() {
                 className="fadeCm"
                 cascade
                 triggerOnce={true}
-                direction="up"
+                direction="bottom-right"
               >
                 {/* première box  */}
                 <Center
@@ -500,7 +502,7 @@ export default function Home() {
               justifyContent={"space-between"}
             >
               <Fade
-                direction="up"
+                direction="bottom-right"
                 cascade
                 className="fadAdvantage"
                 triggerOnce={true}
@@ -518,7 +520,7 @@ export default function Home() {
         </Center>
 
         {/* a propos de nous  */}
-        <Center w={"100%"} h={{ base: "auto", md: "100vh" }} mt={'4em'}>
+        <Center w={"100%"} h={{ base: "auto", md: "100vh" }} mt={"4em"}>
           <Center
             w={{ base: "90%", md: "90%" }}
             h={{ base: "90%", md: "80%" }}
@@ -535,7 +537,7 @@ export default function Home() {
               <Center
                 w={{ base: "100%", md: "100%" }}
                 h={{ base: "70vh", md: "100%" }}
-                justifyContent={"start"}
+                justifyContent={"center"}
                 alignItems={"start"}
                 flexDirection={"column"}
               >
@@ -587,7 +589,7 @@ export default function Home() {
           bg={colorPallete.black}
           flexDirection={"column"}
         >
-          <Fade className="fadeCenter">
+          <Fade className="fadeCenter" direction="up" triggerOnce={true}>
             <Heading color={colorScheme}>RMY</Heading>
             <Box w={{ base: "90%", md: "80%" }} h={"auto"}>
               <Text color={colorPallete.white} textAlign={"center"}>
