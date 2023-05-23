@@ -188,96 +188,99 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        {/* la box qui contient toute la page  */}
-        <Box w={"100%"}>
-          {/* le header avec la navigation et les textes  */}
-          <Flex
+      {/* la box qui contient toute la page  */}
+      <Box w={"100%"}>
+        {/* le header avec la navigation et les textes  */}
+        <Flex
+          w={"100%"}
+          h={"100vh"}
+          bgImage={"url(overlay.svg)"}
+          bgPosition={"center"}
+          bgRepeat={"no-repeat"}
+          bgSize={"cover"}
+          flexDirection={"column"}
+        >
+          {/* la navigation */}
+          <Center
             w={"100%"}
-            h={"100vh"}
-            bgImage={"url(overlay.svg)"}
-            bgPosition={"center"}
-            bgRepeat={"no-repeat"}
-            bgSize={"cover"}
-            flexDirection={"column"}
+            h={"7%"}
+            bg={bannerColor}
+            position={blur ? "fixed" : "relative"}
+            zIndex={"banner"}
+            backdropFilter={"auto"}
+            backdropBlur={blur ? "8px" : "0px"}
           >
-            {/* la navigation */}
-            <Center
-              w={"100%"}
-              h={"7%"}
-              bg={bannerColor}
-              position={blur ? "fixed" : "relative"}
-              zIndex={"banner"}
-              backdropFilter={"auto"}
-              backdropBlur={blur ? "8px" : "0px"}
+            <Flex
+              w={"90%"}
+              h={"100%"}
+              color={colorScheme}
+              justifyContent={"space-between"}
+              alignItems={"center"}
             >
+              <Link href="#" _hover={{ textDecoration: "none" }}>
+                <Heading>RMY</Heading>
+              </Link>
+              <Link href="#" _hover={{ textDecoration: "none" }}>
+                <Text>Connexion</Text>
+              </Link>
+            </Flex>
+          </Center>
+          {/* le contenues du header  */}
+          <Center w={"100%"} h={"93%"}>
+            <Flex w={"90%"} h={"90%"}>
+              {/* le texte de la banier  */}
               <Flex
-                w={"90%"}
+                w={{ base: "100%", sm: "50%" }}
                 h={"100%"}
-                color={colorScheme}
-                justifyContent={"space-between"}
-                alignItems={"center"}
+                align={"start"}
+                justifyContent={"center"}
+                flexDirection={"column"}
               >
-                <Link href="#" _hover={{ textDecoration: "none" }}>
-                  <Heading>RMY</Heading>
-                </Link>
-                <Link href="#" _hover={{ textDecoration: "none" }}>
-                  <Text>Connexion</Text>
-                </Link>
-              </Flex>
-            </Center>
-            {/* le contenues du header  */}
-            <Center w={"100%"} h={"93%"}>
-              <Flex w={"90%"} h={"90%"}>
-                <Flex
-                  w={{ base: "100%", sm: "50%" }}
-                  h={"100%"}
-                  align={"start"}
-                  justifyContent={"center"}
-                  flexDirection={"column"}
+                <Fade
+                  cascade
+                  direction="bottom-right"
+                  triggerOnce={true}
+                  className="fadeHeader"
                 >
-                  {/* le texte de la banier  */}
-                  <Fade
-                    cascade
-                    direction="down"
-                    triggerOnce={true}
-                    className="fadeHeader"
+                  {" "}
+                  <Heading color={colorPallete.white}>
+                    Gestion et suivi des<br></br>
+                    obligations avec<br></br>
+                  </Heading>
+                  <Heading color={colorScheme}>RMY</Heading>
+                  <Text color={colorPallete.white}>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    <br></br>
+                    Tempore enim eaque veniam aliquam porro quae ut aperiam
+                    <br></br>
+                    fugit ab commodi est voluptatem nesciunt illo quam iure
+                    mollitia,
+                  </Text>
+                  <Button
+                    color={colorPallete.white}
+                    bg={colorScheme}
+                    w={"10em"}
+                    borderRadius={"5px"}
+                    mt={"5"}
+                    _hover={{
+                      bg: colorScheme,
+                      filter: "auto",
+                      brightness: "60%",
+                    }}
+                    rightIcon={<ArrowRightIcon />}
                   >
-                    {" "}
-                    <Heading color={colorPallete.white}>
-                      Gestion et suivi des<br></br>
-                      obligations avec<br></br>
-                    </Heading>
-                    <Heading color={colorScheme}>RMY</Heading>
-                    <Text color={colorPallete.white}>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      <br></br>
-                      Tempore enim eaque veniam aliquam porro quae ut aperiam
-                      <br></br>
-                      fugit ab commodi est voluptatem nesciunt illo quam iure
-                      mollitia,
-                    </Text>
-                    <Button
-                      color={colorPallete.white}
-                      bg={colorScheme}
-                      w={"10em"}
-                      borderRadius={"5px"}
-                      mt={"5"}
-                      _hover={{
-                        bg: colorScheme,
-                        filter: "auto",
-                        brightness: "60%",
-                      }}
-                      rightIcon={<ArrowRightIcon />}
-                    >
-                      {/* <FontAwesomeIcon icon={faBolt} size="2xs" style={{color: "#ffffff",}} /> */}
-                      Demarer
-                    </Button>
-                  </Fade>
-                  {/* ------------ */}
-                </Flex>
-                {isLargerThan768 ? (
+                    {/* <FontAwesomeIcon icon={faBolt} size="2xs" style={{color: "#ffffff",}} /> */}
+                    Demarer
+                  </Button>
+                </Fade>
+                {/* ------------ */}
+              </Flex>
+
+              {/* l'immage en fond  */}
+              {isLargerThan768 ? (
+                <Fade className="fadeBgBanner" direction="bottom-left" delay={1500} duration={2000}>
                   <Center
-                    w={"50%"}
+                    w={"100%"}
                     h={"100%"}
                     bgImage={"url(hero.png)"}
                     bgSize={"contain"}
@@ -286,91 +289,92 @@ export default function Home() {
                     filter="auto"
                     brightness="40%"
                   ></Center>
-                ) : null}
-              </Flex>
-            </Center>
-          </Flex>
-
-          {/* choisir son style  */}
-          <Center
-            w={"100%"}
-            h={{ base: "auto", md: "100vh" }}
-            flexDirection={"column"}
-            mt={"4em"}
-          >
-            {/* l'entete du choix de style  */}
-            <Fade className="fadeCenter" cascade>
-              <Heading color={colorScheme} textAlign={"center"}>
-                {"Definissez votre propre style pour l'affichage"}
-              </Heading>
-              <Text mt={"5"} textAlign={"center"}>
-                {"En un clic deffinissez l'affichage"}{" "}
-              </Text>
-            </Fade>
-
-            <Center w={"100%"} mt={"4em"}>
-              <Flex
-                w={{ base: "100%", md: "80%" }}
-                h={{ base: "auto", md: "70vh" }}
-                flexDirection={{ base: "column-reverse", md: "row" }}
-              >
-                <Center
-                  w={{ base: "100%", md: "80%" }}
-                  h={{ base: "50vh", md: "100%" }}
-                  bgImage={"url(03.png)"}
-                  bgSize={"contain"}
-                  bgRepeat={"no-repeat"}
-                  bgPosition={"center"}
-                ></Center>
-
-                <Center
-                  w={{ base: "100%", md: "20%" }}
-                  h={{ base: "10em", md: "100%" }}
-                >
-                  <RadioGroup value={colorScheme} onChange={changeHandler}>
-                    <Stack
-                      direction={{ base: "row", md: "column" }}
-                      justifyContent={"space-between"}
-                    >
-                      {colorList.map((color) => (
-                        <Radio
-                          key={color.id}
-                          value={color.color}
-                          bg={color.color}
-                          colorScheme="blue"
-                        ></Radio>
-                      ))}
-                    </Stack>
-                  </RadioGroup>
-                </Center>
-              </Flex>
-            </Center>
+                </Fade>
+              ) : null}
+            </Flex>
           </Center>
+        </Flex>
 
-          {/* comment ça marhce  */}
-          <Center
-            w={"100%"}
-            h={{ base: "auto", md: "100vh" }}
-            flexDirection={"column"}
-          >
-            <Heading color={colorScheme}>{"Comment ça marche ?"}</Heading>
-            <Center w={"100%"} h={{ base: "auto", md: "70vh" }} mt={"2em"}>
-              <Flex
-                w={"70%"}
-                h={{ base: "auto", md: "90%" }}
-                flexDirection={{ base: "column", md: "row" }}
-                justifyContent={"space-between"}
+        {/* choisir son style  */}
+        <Center
+          w={"100%"}
+          h={{ base: "auto", md: "100vh" }}
+          flexDirection={"column"}
+          mt={"4em"}
+        >
+          {/* l'entete du choix de style  */}
+          <Fade className="fadeCenter" cascade>
+            <Heading color={colorScheme} textAlign={"center"}>
+              {"Definissez votre propre style pour l'affichage"}
+            </Heading>
+            <Text mt={"5"} textAlign={"center"}>
+              {"En un clic deffinissez l'affichage"}{" "}
+            </Text>
+          </Fade>
+
+          <Center w={"100%"} mt={"4em"}>
+            <Flex
+              w={{ base: "100%", md: "80%" }}
+              h={{ base: "auto", md: "70vh" }}
+              flexDirection={{ base: "column-reverse", md: "row" }}
+            >
+              <Center
+                w={{ base: "100%", md: "80%" }}
+                h={{ base: "50vh", md: "100%" }}
+                bgImage={"url(03.png)"}
+                bgSize={"contain"}
+                bgRepeat={"no-repeat"}
+                bgPosition={"center"}
+              ></Center>
+
+              <Center
+                w={{ base: "100%", md: "20%" }}
+                h={{ base: "10em", md: "100%" }}
               >
-                {/* première box  */}
-                <Center
-                  w={{ base: "100%", md: "30%" }}
-                  h={{ base: "30em", md: "100%" }}
-                  mb={{ base: "2em", md: "0em" }}
-                  bg={"rgb(244, 246, 248)"}
-                  borderRadius={"15px"}
-                  flexDirection={"column"}
-                >
-                  {/* <Center mb={"2em"}>
+                <RadioGroup value={colorScheme} onChange={changeHandler}>
+                  <Stack
+                    direction={{ base: "row", md: "column" }}
+                    justifyContent={"space-between"}
+                  >
+                    {colorList.map((color) => (
+                      <Radio
+                        key={color.id}
+                        value={color.color}
+                        bg={color.color}
+                        colorScheme="blue"
+                      ></Radio>
+                    ))}
+                  </Stack>
+                </RadioGroup>
+              </Center>
+            </Flex>
+          </Center>
+        </Center>
+
+        {/* comment ça marhce  */}
+        <Center
+          w={"100%"}
+          h={{ base: "auto", md: "100vh" }}
+          flexDirection={"column"}
+        >
+          <Heading color={colorScheme}>{"Comment ça marche ?"}</Heading>
+          <Center w={"100%"} h={{ base: "auto", md: "70vh" }} mt={"2em"}>
+            <Flex
+              w={"70%"}
+              h={{ base: "auto", md: "90%" }}
+              flexDirection={{ base: "column", md: "row" }}
+              justifyContent={"space-between"}
+            >
+              {/* première box  */}
+              <Center
+                w={{ base: "100%", md: "30%" }}
+                h={{ base: "30em", md: "100%" }}
+                mb={{ base: "2em", md: "0em" }}
+                bg={"rgb(244, 246, 248)"}
+                borderRadius={"15px"}
+                flexDirection={"column"}
+              >
+                {/* <Center mb={"2em"}>
                   <FontAwesomeIcon
                     icon={faBoltLightning}
                     size="sm"
@@ -378,6 +382,37 @@ export default function Home() {
                   />
                 </Center> */}
 
+                <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
+                  Bonne Performances
+                </Text>
+                <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Quidem nemo suscipit asperiores, officia fugiat ad.
+                </Text>
+              </Center>
+              {/* deuxieme box  */}
+              <Center
+                w={{ base: "100%", md: "30%" }}
+                h={{ base: "30em", md: "100%" }}
+                mb={{ base: "2em", md: "0em" }}
+                borderRadius={"15px"}
+                flexDirection={"column"}
+                boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
+              >
+                <Center
+                  w={"90%"}
+                  h={"90%"}
+                  borderRadius={"15px"}
+                  boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
+                  flexDirection={"column"}
+                >
+                  {/* <Center mb={"2em"}>
+                    <FontAwesomeIcon
+                      icon={faLightbulb}
+                      style={{ color: "#ffba08" }}
+                      size="sm"
+                    />
+                  </Center> */}
                   <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
                     Bonne Performances
                   </Text>
@@ -386,48 +421,17 @@ export default function Home() {
                     Quidem nemo suscipit asperiores, officia fugiat ad.
                   </Text>
                 </Center>
-                {/* deuxieme box  */}
-                <Center
-                  w={{ base: "100%", md: "30%" }}
-                  h={{ base: "30em", md: "100%" }}
-                  mb={{ base: "2em", md: "0em" }}
-                  borderRadius={"15px"}
-                  flexDirection={"column"}
-                  boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
-                >
-                  <Center
-                    w={"90%"}
-                    h={"90%"}
-                    borderRadius={"15px"}
-                    boxShadow={"rgba(17, 12, 46, 0.15) 0px 48px 100px 0px"}
-                    flexDirection={"column"}
-                  >
-                    {/* <Center mb={"2em"}>
-                    <FontAwesomeIcon
-                      icon={faLightbulb}
-                      style={{ color: "#ffba08" }}
-                      size="sm"
-                    />
-                  </Center> */}
-                    <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
-                      Bonne Performances
-                    </Text>
-                    <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
-                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                      Quidem nemo suscipit asperiores, officia fugiat ad.
-                    </Text>
-                  </Center>
-                </Center>
-                {/* troisieme box  */}
-                <Center
-                  w={{ base: "100%", md: "30%" }}
-                  h={{ base: "30em", md: "100%" }}
-                  mb={{ base: "2em", md: "0em" }}
-                  bg={"rgb(244, 246, 248)"}
-                  borderRadius={"15px"}
-                  flexDirection={"column"}
-                >
-                  {/* <Center mb={"2em"}>
+              </Center>
+              {/* troisieme box  */}
+              <Center
+                w={{ base: "100%", md: "30%" }}
+                h={{ base: "30em", md: "100%" }}
+                mb={{ base: "2em", md: "0em" }}
+                bg={"rgb(244, 246, 248)"}
+                borderRadius={"15px"}
+                flexDirection={"column"}
+              >
+                {/* <Center mb={"2em"}>
                   <FontAwesomeIcon
                     icon={faCloud}
                     style={{ color: colorScheme }}
@@ -435,148 +439,147 @@ export default function Home() {
                   />
                 </Center> */}
 
-                  <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
-                    Sauvegarde
-                  </Text>
-                  <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Quidem nemo suscipit asperiores, officia fugiat ad.
-                  </Text>
-                </Center>
-                {/* ---------------- */}
-              </Flex>
-            </Center>
+                <Text fontWeight={"bold"} fontSize={"1.3em"} mb={"2em"}>
+                  Sauvegarde
+                </Text>
+                <Text textAlign={"center"} color={"rgb(99, 115, 129)"}>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Quidem nemo suscipit asperiores, officia fugiat ad.
+                </Text>
+              </Center>
+              {/* ---------------- */}
+            </Flex>
           </Center>
+        </Center>
 
-          {/* nos avantages*/}
-          <Center
-            w={"100%"}
-            h={{ base: "auto", md: "100vh" }}
-            flexDirection={"column"}
-            bg={colorScheme}
-            color={colorPallete.white}
+        {/* nos avantages*/}
+        <Center
+          w={"100%"}
+          h={{ base: "auto", md: "100vh" }}
+          flexDirection={"column"}
+          bg={colorScheme}
+          color={colorPallete.white}
+        >
+          <Heading textAlign={"center"}>
+            Quelques avantages de notre solution
+          </Heading>
+          <Text
+            textAlign={"center"}
+            w={{ base: "100%", md: "40%" }}
+            color={"#778da9"}
           >
-            <Heading textAlign={"center"}>
-              Quelques avantages de notre solution
-            </Heading>
-            <Text
-              textAlign={"center"}
-              w={{ base: "100%", md: "40%" }}
-              color={"#778da9"}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-              sint nesciunt, vitae dicta quasi non, iure tempore vel deserunt
-              eaque quod ullam ipsum accusantium porro suscipit omnis id
-              praesentium facere?
-            </Text>
-            <Center w={"100%"} h={{ base: "auto", md: "50vh" }} mt={"2em"}>
-              <Flex
-                w={"90%"}
-                h={{ base: "auto", md: "90%" }}
-                flexDirection={{ base: "column", md: "row" }}
-                justifyContent={"space-between"}
-              >
-                {advantageList.map((item) => (
-                  <Avantage
-                    key={item.id}
-                    adavantageItem={item}
-                    colorScheme={colorScheme}
-                  />
-                ))}
-              </Flex>
-            </Center>
-          </Center>
-
-          {/* a propos de nous  */}
-          <Center w={"100%"} h={{ base: "auto", md: "100vh" }}>
-            <Center
-              w={{ base: "90%", md: "90%" }}
-              h={{ base: "90%", md: "80%" }}
-              bg={colorPallete.white}
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
+            sint nesciunt, vitae dicta quasi non, iure tempore vel deserunt
+            eaque quod ullam ipsum accusantium porro suscipit omnis id
+            praesentium facere?
+          </Text>
+          <Center w={"100%"} h={{ base: "auto", md: "50vh" }} mt={"2em"}>
+            <Flex
+              w={"90%"}
+              h={{ base: "auto", md: "90%" }}
               flexDirection={{ base: "column", md: "row" }}
+              justifyContent={"space-between"}
             >
-              {/* first box  */}
-              <Center
-                w={{ base: "100%", md: "50%" }}
-                h={{ base: "70vh", md: "100%" }}
-                justifyContent={"start"}
-                alignItems={"start"}
-                flexDirection={"column"}
+              {advantageList.map((item) => (
+                <Avantage
+                  key={item.id}
+                  adavantageItem={item}
+                  colorScheme={colorScheme}
+                />
+              ))}
+            </Flex>
+          </Center>
+        </Center>
+
+        {/* a propos de nous  */}
+        <Center w={"100%"} h={{ base: "auto", md: "100vh" }}>
+          <Center
+            w={{ base: "90%", md: "90%" }}
+            h={{ base: "90%", md: "80%" }}
+            bg={colorPallete.white}
+            flexDirection={{ base: "column", md: "row" }}
+          >
+            {/* first box  */}
+            <Center
+              w={{ base: "100%", md: "50%" }}
+              h={{ base: "70vh", md: "100%" }}
+              justifyContent={"start"}
+              alignItems={"start"}
+              flexDirection={"column"}
+            >
+              <Text
+                textTransform={"uppercase"}
+                fontWeight={"bold"}
+                fontFamily={"'Public Sans', sans-serif"}
+                fontSize={"smaller"}
+                color={colorPallete.grey}
+                letterSpacing={"5px"}
               >
-                <Text
-                  textTransform={"uppercase"}
-                  fontWeight={"bold"}
-                  fontFamily={"'Public Sans', sans-serif"}
-                  fontSize={"smaller"}
-                  color={colorPallete.grey}
-                  letterSpacing={"5px"}
-                >
-                  {" "}
-                  a propos de RMY
-                </Text>
-                <Heading>Une solution simple et efficace.</Heading>
-                <Text color={"rgb(99, 115, 129)"}>
-                  Elit aute dolor commodo incididunt irure sint eu fugiat est
-                  veniam reprehenderit eu aliqua laborum. Ad amet exercitation
-                  fugiat ex cupidatat est elit anim officia et reprehenderit
-                  velit. Dolore non consequat magna ut aliquip est aute. Ut nisi
-                  commodo est excepteur aliqua. Ex incididunt minim sint eu
-                  officia. Ullamco culpa incididunt irure ut irure aute qui
-                  sint.Esse elit adipisicing eu officia Lorem culpa et est
-                  officia. Exercitation dolore ipsum fugiat commodo aute qui
-                  cupidatat quis elit do ullamco labore ad do. Veniam esse sint
-                  non incididunt esse ut proident mollit id aute nulla
-                  exercitation nisi cupidatat.
-                </Text>
-              </Center>
-              {/* seconde box  */}
-              <Center
-                w={{ base: "100%", md: "50%" }}
-                h={{ base: "70vh", md: "100%" }}
-                bgImage={"url(02.png)"}
-                bgSize={"contain"}
-                bgRepeat={"no-repeat"}
-                bgPosition={"center"}
-              >
-                {/* <Image src="02.png" alt="Dan Abramov"  boxSize={'80%'}/> */}
-              </Center>
+                {" "}
+                a propos de RMY
+              </Text>
+              <Heading>Une solution simple et efficace.</Heading>
+              <Text color={"rgb(99, 115, 129)"}>
+                Elit aute dolor commodo incididunt irure sint eu fugiat est
+                veniam reprehenderit eu aliqua laborum. Ad amet exercitation
+                fugiat ex cupidatat est elit anim officia et reprehenderit
+                velit. Dolore non consequat magna ut aliquip est aute. Ut nisi
+                commodo est excepteur aliqua. Ex incididunt minim sint eu
+                officia. Ullamco culpa incididunt irure ut irure aute qui
+                sint.Esse elit adipisicing eu officia Lorem culpa et est
+                officia. Exercitation dolore ipsum fugiat commodo aute qui
+                cupidatat quis elit do ullamco labore ad do. Veniam esse sint
+                non incididunt esse ut proident mollit id aute nulla
+                exercitation nisi cupidatat.
+              </Text>
+            </Center>
+            {/* seconde box  */}
+            <Center
+              w={{ base: "100%", md: "50%" }}
+              h={{ base: "70vh", md: "100%" }}
+              bgImage={"url(02.png)"}
+              bgSize={"contain"}
+              bgRepeat={"no-repeat"}
+              bgPosition={"center"}
+            >
+              {/* <Image src="02.png" alt="Dan Abramov"  boxSize={'80%'}/> */}
             </Center>
           </Center>
+        </Center>
 
-          {/* footer  */}
-          <Center
-            w={"100%"}
-            h={"50vh"}
-            bg={colorPallete.black}
-            flexDirection={"column"}
-          >
-            <Fade className="fadeCenter">
-              <Heading color={colorScheme}>RMY</Heading>
-              <Box w={{ base: "90%", md: "80%" }} h={"auto"}>
-                <Text color={colorPallete.white} textAlign={"center"}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-                  aliquam deserunt, vitae consequatur nostrum nisi
-                  exercitationem temporibus, cupiditate itaque necessitatibus
-                  explicabo ex omnis tenetur asperiores voluptatum autem dolorum
-                  amet numquam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Laboriosam commodi accusantium quibusdam
-                  excepturi distinctio quo deleniti similique earum. Temporibus
-                  quisquam quidem placeat ab vitae similique? Dolore inventore
-                  nulla possimus tempora.
-                </Text>
-              </Box>
-              <Link
-                href="#"
-                color={colorScheme}
-                textDecoration={"none"}
-                _hover={{ textDecoration: "none" }}
-                isExternal
-              >
-                ©By SOGEL AFRIK
-              </Link>
-            </Fade>
-          </Center>
-        </Box>
+        {/* footer  */}
+        <Center
+          w={"100%"}
+          h={"50vh"}
+          bg={colorPallete.black}
+          flexDirection={"column"}
+        >
+          <Fade className="fadeCenter">
+            <Heading color={colorScheme}>RMY</Heading>
+            <Box w={{ base: "90%", md: "80%" }} h={"auto"}>
+              <Text color={colorPallete.white} textAlign={"center"}>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
+                aliquam deserunt, vitae consequatur nostrum nisi exercitationem
+                temporibus, cupiditate itaque necessitatibus explicabo ex omnis
+                tenetur asperiores voluptatum autem dolorum amet numquam. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
+                commodi accusantium quibusdam excepturi distinctio quo deleniti
+                similique earum. Temporibus quisquam quidem placeat ab vitae
+                similique? Dolore inventore nulla possimus tempora.
+              </Text>
+            </Box>
+            <Link
+              href="#"
+              color={colorScheme}
+              textDecoration={"none"}
+              _hover={{ textDecoration: "none" }}
+              isExternal
+            >
+              ©By SOGEL AFRIK
+            </Link>
+          </Fade>
+        </Center>
+      </Box>
     </>
   );
 }
