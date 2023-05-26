@@ -71,7 +71,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     id_commenditaire: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: 'utilisateur',
         key: 'id_utilisateur'

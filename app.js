@@ -59,6 +59,13 @@ require('./src/routes/obligation/finfAllObligation')(app)
 require('./src/routes/obligation/findBobligationById')(app)
 require('./src/routes/obligation/updtaeObligation')(app)
 
+/*PERIODICITE */
+require('./src/routes/periodicite/createPeriodicite')(app);
+require('./src/routes/periodicite/deletePeriodicite')(app);
+require('./src/routes/periodicite/findAllPeriodicite')(app);
+require('./src/routes/periodicite/findPeriodiciteById')(app);
+require('./src/routes/periodicite/updatePeriodicite')(app);
+
 /*SUIVI OBLIGATION */
 require('./src/routes/suivi_obligation/createSuiviObligation')(app);
 require('./src/routes/suivi_obligation/deleteSuiviObligation')(app);
