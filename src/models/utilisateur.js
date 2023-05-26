@@ -15,10 +15,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: false
     },
+    fonction: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
     email: {
       type: DataTypes.STRING(255),
       allowNull: false,
-      unique: "unique_email"
+      unique: "utilisateur_email_unique"
     },
     mot_de_passe: {
       type: DataTypes.STRING(255),
@@ -54,7 +58,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "utilisateur_email_unique",
+        name: "unique_email",
         unique: true,
         using: "BTREE",
         fields: [
@@ -62,7 +66,7 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "unique_email",
+        name: "utilisateur_email_unique",
         unique: true,
         using: "BTREE",
         fields: [
