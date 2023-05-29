@@ -14,25 +14,8 @@ module.exports = (app) => {
         return res.status(404).json({ message });
       }
 
-      const { mot_de_passe, ...otherFields } = req.body;
-
-      if (mot_de_passe) {
-        const passwordMatch = await bcrypt.compare(
-          mot_de_passe,
-          user.mot_de_passe
-        );
-        if (!passwordMatch) {
-          const message = "Mot de passe incorrect";
-          return res.status(400).json({ message });
-        }
-      }
-
-      if (Object.keys(otherFields).length === 0) {
-        const message = "Aucune donnée à mettre à jour";
-        return res.status(400).json({ message });
-      }
-
-      await models.utilisateur.update(otherFields, {
+      
+      await models.utilisateur.update(req.body, {
         where: { id_utilisateur: id },
       });
 

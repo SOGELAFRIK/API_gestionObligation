@@ -1,11 +1,11 @@
-const SequelizeAuto = require('sequelize-auto');
-const auto = new SequelizeAuto('gestionobligations', 'root', '', {
-  host: 'localhost',
-  dialect: 'mariadb',
-  directory: '../models',
+const SequelizeAuto = require("sequelize-auto");
+const auto = new SequelizeAuto("gestionobligations", "root", "", {
+  host: "localhost",
+  dialect: "mariadb",
+  directory: "../models",
   additional: {
-    timestamps: false
-  }
+    timestamps: false,
+  },
 });
 
 auto.run((err) => {
