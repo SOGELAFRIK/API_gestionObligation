@@ -1,4 +1,4 @@
-const { User, models } = require("../db/sequelize");
+const { models } = require("../db/sequelize");
 const bcrypt = require("bcrypt");
 const privateKey = require("../auth/private_key");
 const jwt = require("jsonwebtoken");

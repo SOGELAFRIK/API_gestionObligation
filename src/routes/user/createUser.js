@@ -2,6 +2,7 @@ const { ValidationError, UniqueConstraintError } = require("sequelize");
 const { models } = require("../../db/sequelize");
 const bcrypt = require("bcrypt");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
 
@@ -62,6 +63,13 @@ const createUser = async (req, res) => {
   }
 };
 
+/**
+ * Creates a new user through an HTTP POST request to the '/api/user' endpoint,
+ * using the provided 'app' object and 'auth' middleware.
+ *
+ * @param {Object} app - The Express app object.
+ * @return {void}
+ */
 module.exports = (app) => {
-  app.post("/api/user",  createUser);
+  app.post("/api/user", auth(1, getUserRole), createUser);
 };
