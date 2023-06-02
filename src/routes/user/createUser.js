@@ -23,7 +23,7 @@ const createUser = async (req, res) => {
     const resetToken = jwt.sign(
       { email: req.body.email },
       "your-secret-key",
-      { expiresIn: "1h" } // Set the expiration time for the token
+      { expiresIn: "24h" } // Set the expiration time for the token
     );
 
     // Create the user without storing the password

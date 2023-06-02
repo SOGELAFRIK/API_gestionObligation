@@ -3,14 +3,29 @@ const initModels = require("../models/init-models");
 const bcrypt = require("bcrypt");
 
 //connexion a la base donées
-const sequelize = new Sequelize("gestionobligations", "root", "", {
-  host: "localhost",
-  dialect: "mariadb",
-  dialectOptions: {
-    timezone: "Etc/GMT-2",
-  },
-  logging: false,
-});
+// const sequelize = new Sequelize("gestionobligations", "root", "", {
+//   host: "localhost",
+//   dialect: "mariadb",
+//   dialectOptions: {
+//     timezone: "Etc/GMT-2",
+//   },
+//   logging: false,
+// });
+
+const sequelize = new Sequelize(
+  "bgnmjxrclll88sv7ij25",
+  "uhprky1i0wzujzpk",
+  "RC9e9O9XMlyMCmudnHC9",
+  {
+    host: "bgnmjxrclll88sv7ij25-mysql.services.clever-cloud.com",
+    dialect: "mysql",
+    dialectOptions: {
+      timezone: "Etc/GMT-2",
+    },
+    logging: false,
+  }
+);
+
 
 /*creation de nos models de base de données 
 en utilisant la fonction initModels*/
