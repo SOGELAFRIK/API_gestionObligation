@@ -2,9 +2,10 @@ const { ValidationError, UniqueConstraintError } = require("sequelize");
 const bcrypt = require("bcrypt");
 const { models } = require("../../db/sequelize");
 const auth = require("../../auth/auth");
+const getUserRole = require("../../auth/getUserRole");
 
 module.exports = (app) => {
-  app.put("/api/user/:id", auth, async (req, res) => {
+  app.put("/api/user/:id", auth(1, getUserRole), async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -14,7 +15,6 @@ module.exports = (app) => {
         return res.status(404).json({ message });
       }
 
-      
       await models.utilisateur.update(req.body, {
         where: { id_utilisateur: id },
       });

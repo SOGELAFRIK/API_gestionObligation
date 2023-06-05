@@ -20,7 +20,7 @@ const sequelize = new Sequelize(
     host: "bgnmjxrclll88sv7ij25-mysql.services.clever-cloud.com",
     dialect: "mysql",
     dialectOptions: {
-      timezone: "Etc/GMT-2",
+      timezone: "UTC",
     },
     logging: false,
   }
