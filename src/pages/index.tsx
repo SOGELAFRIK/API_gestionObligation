@@ -523,7 +523,9 @@ export default function Home() {
           w={"100%"}
           h={{ base: "auto", md: "100vh" }}
           flexDirection={"column"}
-          bg={colorScheme}
+          bg={"#000"}
+          backdropFilter="auto"
+          backdropBlur="8px"
           color={colorPallete.white}
         >
           <Heading textAlign={"center"} mb={"10px"}>
@@ -617,7 +619,7 @@ export default function Home() {
               <Center
                 w={{ base: "100%", md: "100%" }}
                 h={{ base: "70vh", md: "100%" }}
-                bgImage={"url(02.png)"}
+                bgImage={"url(02.svg)"}
                 bgSize={"contain"}
                 bgRepeat={"no-repeat"}
                 bgPosition={"center"}
