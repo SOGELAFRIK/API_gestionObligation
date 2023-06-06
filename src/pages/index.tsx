@@ -32,16 +32,51 @@ const colorPallete = {
   light_blue: "#caf0f8",
 };
 const colorList = [
-  { id: 1, color: "#023e8a" },
-  { id: 2, color: "#0096c7" },
-  { id: 3, color: "#48cae4" },
-  { id: 4, color: "#ff9500" },
-  { id: 5, color: "#ffc300" },
-  { id: 6, color: "#ef6351" },
-  { id: 7, color: "#f38375" },
-  { id: 8, color: "#ffe3e0" },
-  { id: 9, color: "#c1d3fe" },
-  { id: 10, color: "#abc4ff" },
+  {
+    id: 1,
+    color: "#7ae582",
+    image: "illus/copie1.svg",
+  },
+  {
+    id: 2,
+    color: "#4e878c",
+    image: "illus/copie2.svg",
+  },
+  {
+    id: 3,
+    color: "#faaa8d",
+    image: "illus/copie3.svg",
+  },
+  {
+    id: 4,
+    color: "#9b5de5",
+    image: "illus/copie4.svg",
+  },
+  {
+    id: 5,
+    color: "#48cae4",
+    image: "illus/copie5.svg",
+  },
+  {
+    id: 6,
+    color: "#ffb4a2",
+    image: "illus/copie6.svg",
+  },
+  {
+    id: 7,
+    color: "#c9ada7",
+    image: "illus/copie7.svg",
+  },
+  {
+    id: 8,
+    color: "#574ae2",
+    image: "illus/copie8.svg",
+  },
+  {
+    id: 9,
+    color: "#deaaff",
+    image: "illus/copie9.svg",
+  },
 ];
 // ---------------------------------------------assets--------------------------------------------------------------------------
 
@@ -131,6 +166,10 @@ export default function Home() {
   const changeHandler = (e: string) => {
     setColorScheme(e);
   };
+  const [isBgSelect, setIsBgSelect] = useState(0);
+  const bgSelected = (id: number) => {
+    setIsBgSelect(id);
+  };
 
   const [bannerColor, setBannerColor] = useState("transparent");
   const [blur, setBlur] = useState(true);
@@ -150,7 +189,7 @@ export default function Home() {
   const handleScroll = () => {
     if (typeof window !== "undefined") {
       if (window.pageYOffset !== 0) {
-        setBannerColor("#1b263b72");
+        setBannerColor("#fff");
         setBlur(true);
       } else {
         setBannerColor("transparent");
@@ -205,15 +244,19 @@ export default function Home() {
           {/* la navigation */}
           <Center
             w={"100%"}
-            h={"10%"}
+            h={"8%"}
             bg={bannerColor}
             position={blur ? "fixed" : "relative"}
             zIndex={"banner"}
-            backdropFilter={"auto"}
-            backdropBlur={blur ? "8px" : "0px"}
+            // backdropFilter={"auto"}
+            boxShadow={
+              blur
+                ? "rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px"
+                : "0px"
+            }
           >
             <Flex
-              w={"90%"}
+              w={"92%"}
               h={"100%"}
               color={colorScheme}
               justifyContent={"space-between"}
@@ -310,7 +353,6 @@ export default function Home() {
           flexDirection={"column"}
           mt={"4em"}
         >
-          {/* l'entete du choix de style  */}
           <Fade
             className="fadeCenter"
             cascade
@@ -318,6 +360,7 @@ export default function Home() {
             duration={300}
             triggerOnce={true}
           >
+            {/* l'entete du choix de style  */}
             <Heading color={colorScheme} textAlign={"center"} mb={"30px"}>
               {"Definissez votre propre style pour l'affichage"}
             </Heading>
@@ -335,7 +378,7 @@ export default function Home() {
               <Center
                 w={{ base: "100%", md: "80%" }}
                 h={{ base: "50vh", md: "100%" }}
-                bgImage={"url(03.png)"}
+                bgImage={`url(${colorList[isBgSelect].image})`}
                 bgSize={"contain"}
                 bgRepeat={"no-repeat"}
                 bgPosition={"center"}
@@ -350,12 +393,14 @@ export default function Home() {
                     direction={{ base: "row", md: "column" }}
                     justifyContent={"space-between"}
                   >
-                    {colorList.map((color) => (
+                    {colorList.map((color, indexe) => (
                       <Radio
                         key={color.id}
                         value={color.color}
                         bg={color.color}
-                        colorScheme="blue"
+                        onChange={() => {
+                          bgSelected(indexe);
+                        }}
                       ></Radio>
                     ))}
                   </Stack>

@@ -17,21 +17,6 @@ a {
   /* transform: translateX(20%); */
 }
 
-::-webkit-scrollbar {
-  width: 12px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #023e8a;
-  /* border-radius: 5px; */
-}
-::-webkit-scrollbar-track {
-  background: white;
-}
-::selection {
-  background-color: #caf0f8;
-  color: #023e8a;
-}
-
 /* ------------------------------------------------------------- */
 
 @import url(fade.css);
