@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const initModels = require("../models/init-models");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
 
 //connexion a la base donées
 // const sequelize = new Sequelize("gestionobligations", "root", "", {
@@ -13,14 +14,14 @@ const bcrypt = require("bcrypt");
 // });
 
 const sequelize = new Sequelize(
-  "bgnmjxrclll88sv7ij25",
-  "uhprky1i0wzujzpk",
-  "RC9e9O9XMlyMCmudnHC9",
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-    host: "bgnmjxrclll88sv7ij25-mysql.services.clever-cloud.com",
-    dialect: "mysql",
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT,
     dialectOptions: {
-      timezone: "UTC",
+      timezone: process.env.DB_TIMEZONE,
     },
     logging: false,
   }
