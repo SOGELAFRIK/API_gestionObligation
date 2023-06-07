@@ -21,7 +21,7 @@ const sequelize = new Sequelize(
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
     dialectOptions: {
-      timezone: process.env.DB_TIMEZONE,
+      // timezone: process.env.DB_TIMEZONE,
     },
     logging: false,
   }
