@@ -30,7 +30,7 @@ const requestPasswordReset = async (req, res) => {
     const resetToken = jwt.sign(
       { email },
       "your-secret-key",
-      { expiresIn: "1h" } // Set the expiration time for the token
+      { expiresIn: "24h" } // Set the expiration time for the token
     );
 
     // Update the user's reset token in the database
@@ -38,7 +38,7 @@ const requestPasswordReset = async (req, res) => {
     await user.save();
 
     // Send an email to the user with the password reset link
-    const resetLink = `http://localhost:4000/reset-password?token=${resetToken}`;
+    const resetLink = `http://localhost:3000/components/authentication/reset-password/?token=${resetToken}`;
     const mailOptions = {
       from: "RMY <helitako16@gmail.com>",
       to: email,
